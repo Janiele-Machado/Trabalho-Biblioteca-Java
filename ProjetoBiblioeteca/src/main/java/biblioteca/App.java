@@ -89,7 +89,14 @@ public class App {
         }else if(opc == 4){
             
         }else if(opc == 5){
-            
+            System.out.println("livros :");
+            for(int t=0;t<4;t++){
+                System.out.println("titulo : "+lv[t].titulo);
+                System.out.println("autor : "+lv[t].autor);
+                System.out.println("ano de publicacao: " +lv[t].getAno_publi());
+                System.out.println("numero de exemplares"+lv[t].getNum_exemplares());
+                System.out.println("-----------------------------------------------------------");
+            }
             
         }else if(opc== 6){
             System.out.println("clientes :");
