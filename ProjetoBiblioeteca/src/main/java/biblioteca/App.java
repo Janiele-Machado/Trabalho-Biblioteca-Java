@@ -85,12 +85,21 @@ public class App {
             
         }else if(opc==3){
             
+            
         }else if(opc == 4){
             
         }else if(opc == 5){
             
             
         }else if(opc== 6){
+            System.out.println("clientes :");
+            for(int t=0;t<4;t++){
+                uso[t].dados();
+                System.out.println("---------------------------------------------------------------");
+           
+            
+        }
+            
             
         }else if(opc ==7){
             
