@@ -63,8 +63,16 @@ public class App {
             
             do{
                 if(f<4){
-                    
-                    
+                    System.out.println("para cadastrar o "+(f+1)+" livro preencha os campos abaixo");
+                    System.out.println("digite o titulo do livro");
+                    titulo_inserido = scan.nextLine();
+                    System.out.println("digite os autores do livro");
+                    autor_inserido= scan.nextLine();
+                    System.out.println("digite o ano de publicacao");
+                    ano_publi_inserido=scan.nextInt();
+                    System.out.println("digite o numero de exemplares");
+                    num_exemplares_inserido = scan.nextInt();
+                    lv[f]= new Livros(titulo_inserido, autor_inserido, ano_publi_inserido,num_exemplares_inserido);    
                     
                 }else{
                     System.out.println("desculpe nao ha mais espaco novos livros");
