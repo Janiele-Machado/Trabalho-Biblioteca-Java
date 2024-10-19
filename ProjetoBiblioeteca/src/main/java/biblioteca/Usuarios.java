@@ -1,13 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package biblioteca;
 
-/**
- *
- * @author aluno
- */
 public class Usuarios {
+    private String nome;
+    private String email;
+    private String num_ident;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setNum_ident(String num_ident) {
+        this.num_ident = num_ident;
+    }
+
     
 }
