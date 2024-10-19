@@ -6,7 +6,7 @@ public class Livros {
     public String autor;
     private int ano_publi;
     private int num_exemplares;
-    public boolean emprestado = false;
+    public boolean emprestado;
     
    // Construtores da classe livro
     public Livros (String titulo, String autor, int ano_publi, int num_exemplares){
@@ -14,6 +14,7 @@ public class Livros {
         this.autor = autor;
         this.ano_publi = ano_publi;
         this.num_exemplares = num_exemplares;
+        this.emprestado=false;
     }
     //Criação de get e set para ano da publicação
    
