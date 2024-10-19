@@ -89,14 +89,19 @@ public class App {
             
         }else if(opc == 5){
             
+            
         }else if(opc== 6){
             
         }else if(opc ==7){
             
             
         }else if(opc==8){
+            System.out.println("obrigado e ate mais");
+            
            
             
+        }else{
+            System.out.println("opcao invalida tente novamente");
         }
         
         
