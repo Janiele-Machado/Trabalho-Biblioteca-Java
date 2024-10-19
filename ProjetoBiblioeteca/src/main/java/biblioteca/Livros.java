@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package biblioteca;
 
-/**
- *
- * @author aluno
- */
+package biblioteca;
 public class Livros {
+    // Atributos da classe
+    String titulo;
+    String autor;
+    private int ano_publi;
+    private int num_exemplares;
     
 }
