@@ -23,5 +23,9 @@ public class Usuarios {
         return num_ident;
     }
     
-    
+    public void dados(){
+        System.out.println("Usuario: " + this.nome);
+        System.out.println("Email: " + this.email);
+        System.err.println("Numero de identificação: " + this.num_ident);
+    }
 }
