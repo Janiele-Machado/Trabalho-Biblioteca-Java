@@ -21,5 +21,4 @@ public class Usuarios {
         this.num_ident = num_ident;
     }
 
-    
 }
