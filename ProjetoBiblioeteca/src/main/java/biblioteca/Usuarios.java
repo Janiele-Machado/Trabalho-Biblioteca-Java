@@ -4,11 +4,13 @@ public class Usuarios {
     private String nome;
     private String email;
     private String num_ident;
+    public boolean usu_disp;
 
     public Usuarios(String nome, String email, String num_ident){
         this.nome = nome;
         this.email = email;
         this.num_ident = num_ident;
+        this.usu_disp=true;//o usuario vai ser criado ja com a disponibilidade de poder pegar um livro emprest.
     }
 
     public String getNome() {
