@@ -4,20 +4,20 @@ package biblioteca;
 public class EmpresDev {
     public Livros livro;
     public Usuarios usu;
-    private boolean emprest;
+    //private boolean emprest;
     
-    void empres (Livros liv_titulo,Usuarios usu){
-         this.livro = liv_titulo;
+    void emprestimo (Livros liv,Usuarios usu){ /*esse método realizara os emprestimos,testando antes a disponibilidade*/
+         this.livro = liv;
          this.usu=usu;
          
         if (this.livro.emprestado==false) { //esse primeiro if vai testar se o livro foi emprestado ou nao 
-            if (this.usu.usu_disp==true) {
+            if (this.usu.usu_disp==true) { //nesse outro if vai testar se o usuario pode pegar emprestado ou nao;
                 this.usu.usu_disp=false;
                 this.livro.emprestado=true;
                 System.out.println("Emprestimo realizado com sucesso");
-            }
-//emprestado vai mudar de valor e tbm tem que colocar o usuario e o livro indisponivel; 
-            
+            }else{
+                System.out.println("Erro em emprestimo,o usuario ja esta com um livro emprestado");
+            }            
         }else{
             System.out.println("O livro nao esta disponivel para o emprestimo");
             
@@ -25,4 +25,21 @@ public class EmpresDev {
                 
         
     }
+    
+    void devolucao(Livros liv,Usuarios usu){
+        this.livro=liv;
+        this.usu=usu;
+        
+        if (this.livro.emprestado==true & this.usu.usu_disp==false) {
+            this.livro.emprestado=false;
+            this.usu.usu_disp=true;
+            System.out.println("Devolucao realizada com sucesso!");
+        }
+           
+        
+        
+    } 
+    
+    
+    
 }
