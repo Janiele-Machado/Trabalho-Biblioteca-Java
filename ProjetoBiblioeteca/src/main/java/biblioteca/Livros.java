@@ -1,9 +1,10 @@
 
 package biblioteca;
 public class Livros {
+    // Atributos da classe
     String titulo;
     String autor;
-    String ano_publi;
-    int num_exemplares;
+    private int ano_publi;
+    private int num_exemplares;
     
 }
