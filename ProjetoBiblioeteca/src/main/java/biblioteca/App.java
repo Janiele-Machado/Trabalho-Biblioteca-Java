@@ -23,6 +23,16 @@ public class App {
         
         
         if(opc==1){
+            Usuarios uso[] = new Usuarios[4];
+            
+            
+            
+            for(int i=0; i<4; i++){
+            System.out.println("para cadastrar "+ (i+1) +"usuario preencha os campos abaixo");
+            System.out.println("digite o nome de ");
+            
+            }
+            
             
         }else if(opc==2){
             
@@ -38,6 +48,7 @@ public class App {
             
             
         }else if(opc==8){
+           
             
         }
         

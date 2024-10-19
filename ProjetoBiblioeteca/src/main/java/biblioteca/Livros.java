@@ -24,5 +24,15 @@ public class Livros {
     public void setAno_publi(int ano_publi) {
         this.ano_publi = ano_publi;
     }
+    //Criação de get e set para numero de exemplares
+
+    public int getNum_exemplares() {
+        return num_exemplares;
+    }
+
+    public void setNum_exemplares(int num_exemplares) {
+        this.num_exemplares = num_exemplares;
+    }
+    
     
 }
