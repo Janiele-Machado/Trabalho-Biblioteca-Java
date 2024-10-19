@@ -34,6 +34,10 @@ public class EmpresDev {
             this.livro.emprestado=false;
             this.usu.usu_disp=true;
             System.out.println("Devolucao realizada com sucesso!");
+        }else if (this.livro.emprestado==false) {
+            System.out.println("O livro ja esta disponivel");
+        }else if (this.usu.usu_disp==true) {
+            System.out.println(usu.getNome()+" Nao possui emprestimos ativos");
         }
            
         
