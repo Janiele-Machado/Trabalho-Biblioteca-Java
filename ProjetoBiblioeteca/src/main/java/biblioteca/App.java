@@ -9,7 +9,13 @@ public class App {
         String nome_inserido;
         String num_inserido;
         String email_inserido;
+        String titulo_inserido;
+        String autor_inserido;
+        int ano_publi_inserido;
+        int num_exemplares_inserido;
+        
         int i=0;
+        int f=0;
         Usuarios uso[] = new Usuarios[4];
         Livros lv[] = new Livros[4];   
         
@@ -18,7 +24,7 @@ public class App {
         int opc=0;
         while(opc !=8){
         
-        Scanner scan = new Scanner(System.in);
+       
         System.out.println("digite a opçao que gostaria de executar");
         System.out.println("1 cadastro clinte");
         System.out.println("2 cadastro livro");
@@ -32,12 +38,11 @@ public class App {
         
         
         if(opc==1){
-            Usuarios uso[] = new Usuarios[4];
             
             
             do{
                 if(i<4){
-                    System.out.println("para cadastrar um clinte preencha os campos abaixo");
+                    System.out.println("para cadastrar o "+(i+1)+" clinte preencha os campos abaixo");
                     System.out.println("digite o nome de usuario");
                     nome_inserido = scan.nextLine();
                     System.out.println("digite o email do usuario");
@@ -46,29 +51,29 @@ public class App {
                     num_inserido= scan.nextLine();
                     
                     uso[i] = new Usuarios( nome_inserido ,email_inserido,num_inserido);
-                    i++;
-                    
-                    
-                
-                    
-                    
+                    i++;   
                 }else{
                     System.out.println("desculpe nao ha mais espaco para novos clintes");
                 }
                 
                 
-                
-                
-                
             }while(i<4);
-            
-            
-            
-            
-           
-            
-            
+       
         }else if(opc==2){
+            
+            do{
+                if(f<4){
+                    
+                    
+                    
+                }else{
+                    System.out.println("desculpe nao ha mais espaco novos livros");
+                }
+                    
+                
+                
+                
+            }while(f<4);
             
         }else if(opc==3){
             
