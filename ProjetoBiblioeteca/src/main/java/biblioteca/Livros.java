@@ -5,8 +5,8 @@ public class Livros {
     public String titulo;
     public String autor;
     private int ano_publi;
-    private int num_exemplares;
-    public boolean emprestado;
+     int num_exemplares;
+   
     
    // Construtores da classe livro
     public Livros (String titulo, String autor, int ano_publi, int num_exemplares){
@@ -14,7 +14,7 @@ public class Livros {
         this.autor = autor;
         this.ano_publi = ano_publi;
         this.num_exemplares = num_exemplares;
-        this.emprestado=false;
+        
     }
     //Criação de get e set para ano da publicação
    
@@ -33,6 +33,24 @@ public class Livros {
 
     public void setNum_exemplares(int num_exemplares) {
         this.num_exemplares = num_exemplares;
+    }
+    
+    public void estado_livro(){
+        if(num_exemplares==0){
+            System.out.println("desculpa nao a mais exemplares");
+            
+        }else{
+            
+            num_exemplares--;
+        System.out.println("Um exemplar foi emprestado. Exemplares restantes: " + num_exemplares);
+        
+            
+        }
+        
+    }
+    public void delv(){
+        num_exemplares++;
+        System.out.println("Um exemplar foi devolvido Exemplares disponíveis: " + num_exemplares);
     }
     
     
