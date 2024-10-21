@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String nome_inserido;
-        String num_inserido;
+        int num_inserido;
         String email_inserido;
         String titulo_inserido;
         String autor_inserido;
@@ -17,7 +17,8 @@ public class App {
         int i=0;
         int f=0;
         Usuarios uso[] = new Usuarios[4];
-        Livros lv[] = new Livros[4];   
+        Livros lv[] = new Livros[4];
+        EmpresDev emp []= new EmpresDev[4];
         
             
         
@@ -48,7 +49,7 @@ public class App {
                     System.out.println("digite o email do usuario");
                     email_inserido =scan.nextLine();
                     System.out.println("digite o numero de indentificacao");
-                    num_inserido= scan.nextLine();
+                    num_inserido= scan.nextInt();
                     
                     uso[i] = new Usuarios( nome_inserido ,email_inserido,num_inserido);
                     i++;   
@@ -84,6 +85,34 @@ public class App {
             }while(f<4);
             
         }else if(opc==3){
+            int procura;
+            System.out.println("digite o seu codigo de usuario");
+            procura= scan.nextInt();
+            
+            for(int h=0;h<4;h++){
+                if(uso[h].getNum_ident() == procura){
+                    System.out.println("ola usuario" +uso[h].getNome());
+                    System.out.println("digite o titulo do livro que deseja pegar emprestado");
+                    String procura_livro = scan.nextLine();
+                    for(int j=0;j<4;j++){
+                        if(lv[j].titulo.equals( procura_livro) ){ //.equals() compara o conteúdo das strings nao achei outro modo
+                            System.out.println("livro encontrado por qual e a data de emprestimo");
+                            int data_emp_inserido = scan.nextInt();
+                            int data_dv_md = data_emp_inserido +3;
+                            uso[h].estado_uso(lv[j]);
+                            emp[j] = new EmpresDev(data_emp_inserido, data_dv_md);
+                            
+                        }
+                    }
+                            
+                    
+                    
+                } else {
+                    System.out.println("desculpa nao achamos voce no nosso sistema");
+                }
+            }
+            
+            
             
             
         }else if(opc == 4){
