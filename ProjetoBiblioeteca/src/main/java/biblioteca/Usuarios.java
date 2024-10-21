@@ -5,7 +5,7 @@ public class Usuarios {
     private String email;
     private int num_ident;
     public int usu_disp;
-    public Livros livroEmprestado;
+    public Livros livroEmprestado;//variavel guardara o livro que o usuario pegou emprestado;
 
     public Usuarios(String nome, String email, int num_ident){
         this.nome = nome;

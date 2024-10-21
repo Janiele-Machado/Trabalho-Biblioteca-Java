@@ -15,12 +15,18 @@ public class Emprestimo {
            livros.estado_livro();
            this.usu.usu_disp=1;
            this.usu.livroEmprestado = this.livros;
+           
           
         }else {
             System.out.println("Desculpe,Voce ja tem um livro em emprestimo");
-        }
-             
+        }       
         
     }
-     
+     public void exibirEmprestimos(Usuarios usu){
+         System.out.println("Registro de emprestimos");
+         
+         if (this.usu.usu_disp==1) {
+             System.out.println("Livro: "+this.usu.livroEmprestado.titulo+" Emprestado por: "+this.usu.getNome());
+         }
+     }
 }
