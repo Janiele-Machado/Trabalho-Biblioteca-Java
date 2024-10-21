@@ -18,7 +18,7 @@ public class App {
         int f=0;
         Usuarios uso[] = new Usuarios[4];
         Livros lv[] = new Livros[4];
-        EmpresDev emp []= new EmpresDev[4];
+        //EmpresDev emp []= new EmpresDev[4];
         
             
         
@@ -36,6 +36,8 @@ public class App {
         System.out.println("7 livros emprestados");
         System.out.println("8 sair");          
         opc = scan.nextInt();
+        scan.nextLine();
+
         
         
         if(opc==1){
@@ -50,7 +52,8 @@ public class App {
                     email_inserido =scan.nextLine();
                     System.out.println("digite o numero de indentificacao");
                     num_inserido= scan.nextInt();
-                    
+                    scan.nextLine(); 
+
                     uso[i] = new Usuarios( nome_inserido ,email_inserido,num_inserido);
                     i++;   
                 }else{
@@ -71,21 +74,21 @@ public class App {
                     autor_inserido= scan.nextLine();
                     System.out.println("digite o ano de publicacao");
                     ano_publi_inserido=scan.nextInt();
+                    scan.nextLine();
                     System.out.println("digite o numero de exemplares");
                     num_exemplares_inserido = scan.nextInt();
-                    lv[f]= new Livros(titulo_inserido, autor_inserido, ano_publi_inserido,num_exemplares_inserido);    
+                    scan.nextLine();
+                    lv[f]= new Livros(titulo_inserido, autor_inserido, ano_publi_inserido,num_exemplares_inserido);
+                    f++;
                     
                 }else{
                     System.out.println("desculpe nao ha mais espaco novos livros");
                 }
-                    
-                
-                
                 
             }while(f<4);
             
         }else if(opc==3){
-            int procura;
+            /*int procura;
             System.out.println("digite o seu codigo de usuario");
             procura= scan.nextInt();
             
@@ -114,7 +117,7 @@ public class App {
                 }
             }
             
-            
+            */
             
             
         }else if(opc == 4){
