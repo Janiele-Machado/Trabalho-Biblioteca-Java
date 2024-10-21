@@ -4,38 +4,23 @@ package biblioteca;
 
 public class Emprestimo {
      public Livros livros;
+     public Usuarios usu;
+ 
     
-  /*  public Livros livro;
-    public Usuarios usu;
-    //private boolean emprest;
-    
-    void emprestimo (Livros liv,Usuarios usu){ /*esse método realizara os emprestimos,testando antes a disponibilidade*/
-      /*   this.livro = liv;
-         this.usu=usu;
-        if (this.livro.emprestado==false) { //esse primeiro if vai testar se o livro foi emprestado ou nao 
-            if (this.usu.usu_disp==true) { //nesse outro if vai testar se o usuario pode pegar emprestado ou nao;
-                this.usu.usu_disp=false;
-                this.livro.emprestado=true;
-                System.out.println("Emprestimo realizado com sucesso");
-                System.out.println("A data de emprestimo: ");
-                
-            }else{
-                System.out.println("Erro em emprestimo,o usuario ja esta com um livro emprestado");
-            }            
-        }else{
-            System.out.println("O livro nao esta disponivel para o emprestimo");
-            
-        }
-                
+    void estado_uso (Livros liv,Usuarios usu){
+        this.livros=liv;
+        this.usu=usu;
         
-    }   
-    } 
-    
-    void registro_emprest(Livros liv){
-        System.out.println("Registro de empréstimos: ");
-        System.out.println("Livro: "+liv.titulo+" Emprestado para " /*+liv.usu.nome" no dia "+ liv.data_emprest);
-    }/*
-    
-
- */
+        if (this.usu.usu_disp != 0 ) {
+           livros.estado_livro();
+           this.usu.usu_disp=1;
+           this.usu.livroEmprestado = this.livros;
+          
+        }else {
+            System.out.println("Desculpe,Voce ja tem um livro em emprestimo");
+        }
+             
+        
+    }
+     
 }
