@@ -3,11 +3,11 @@ package biblioteca;
 public class Usuarios {
     private String nome;
     private String email;
-    private String num_ident;
+    private int num_ident;
     public int usu_disp;
     private Livros livroEmprestado;
 
-    public Usuarios(String nome, String email, String num_ident){
+    public Usuarios(String nome, String email, int num_ident){
         this.nome = nome;
         this.email = email;
         this.num_ident = num_ident;
@@ -24,7 +24,7 @@ public class Usuarios {
         return email;
     }
 
-    public String getNum_ident() {
+    public int getNum_ident() {
         return num_ident;
     }
     
