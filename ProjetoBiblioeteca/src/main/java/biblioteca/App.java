@@ -36,7 +36,7 @@ public class App {
         System.out.println("7 livros emprestados");
         System.out.println("8 sair");          
         opc = scan.nextInt();
-        scan.nextLine();
+        scan.nextLine();//para resolver o bug de pular a pergunta;
 
         
         
@@ -52,7 +52,7 @@ public class App {
                     email_inserido =scan.nextLine();
                     System.out.println("digite o numero de indentificacao");
                     num_inserido= scan.nextInt();
-                    scan.nextLine(); 
+                    scan.nextLine();//para resolver o bug de pular a pergunta; 
 
                     uso[i] = new Usuarios( nome_inserido ,email_inserido,num_inserido);
                     i++;   
@@ -74,10 +74,10 @@ public class App {
                     autor_inserido= scan.nextLine();
                     System.out.println("digite o ano de publicacao");
                     ano_publi_inserido=scan.nextInt();
-                    scan.nextLine();
+                    scan.nextLine();//para resolver o bug de pular a pergunta;
                     System.out.println("digite o numero de exemplares");
                     num_exemplares_inserido = scan.nextInt();
-                    scan.nextLine();
+                    scan.nextLine();//para resolver o bug de pular a pergunta;
                     lv[f]= new Livros(titulo_inserido, autor_inserido, ano_publi_inserido,num_exemplares_inserido);
                     f++;
                     
@@ -88,7 +88,7 @@ public class App {
             }while(f<4);
             
         }else if(opc==3){
-            /*int procura;
+            int procura;
             System.out.println("digite o seu codigo de usuario");
             procura= scan.nextInt();
             
@@ -117,7 +117,7 @@ public class App {
                 }
             }
             
-            */
+           
             
             
         }else if(opc == 4){

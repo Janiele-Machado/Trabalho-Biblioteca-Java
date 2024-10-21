@@ -15,7 +15,7 @@ public class Emprestimo {
         
         if (this.usu.usu_disp != 0 ) {
            livros.estado_livro();
-           this.usu.usu_disp=1;
+           this.usu.usu_disp=1;// Cliente tem um empréstimo ativo
            this.usu.livroEmprestado = this.livros;
            livros.setDataEmprestimo(LocalDate.now()); // Registrar a data do empréstimo
           
