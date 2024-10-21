@@ -101,6 +101,8 @@ public class App {
                             int data_dv_md = data_emp_inserido +3;
                             uso[h].estado_uso(lv[j]);
                             emp[j] = new EmpresDev(data_emp_inserido, data_dv_md);
+                            //exemplo de como chamar o metodo emprestimo:
+                            //emp[j].estado_uso(lv[0], usu[0]); voce tem que enviar a variavel com tudo!!!
                             
                         }
                     }

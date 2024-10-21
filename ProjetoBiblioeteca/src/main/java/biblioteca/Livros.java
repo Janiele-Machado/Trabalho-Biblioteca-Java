@@ -1,5 +1,7 @@
 package biblioteca;
 
+import java.time.LocalDate;
+
 public class Livros {
 
     // Atributos da classe
@@ -7,6 +9,7 @@ public class Livros {
     public String autor;
     private int ano_publi;
     private int num_exemplares;
+    private LocalDate dataEmprestimo;
 
     // Construtores da classe livro
     public Livros(String titulo, String autor, int ano_publi, int num_exemplares) {
@@ -35,6 +38,14 @@ public class Livros {
         this.num_exemplares = num_exemplares;
     }
 
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+    
     public void estado_livro() {
         if (num_exemplares == 0) {
             System.out.println("desculpa nao a mais exemplares");
