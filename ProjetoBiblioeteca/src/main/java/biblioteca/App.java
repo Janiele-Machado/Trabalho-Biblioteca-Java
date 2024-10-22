@@ -18,7 +18,7 @@ public class App {
         int f=0;
         Usuarios uso[] = new Usuarios[4];
         Livros lv[] = new Livros[4];
-        //EmpresDev emp []= new EmpresDev[4];
+        Emprestimo emp []= new Emprestimo[4];
         
             
         
@@ -100,12 +100,8 @@ public class App {
                     for(int j=0;j<4;j++){
                         if(lv[j].titulo.equals( procura_livro) ){ //.equals() compara o conteúdo das strings nao achei outro modo
                             System.out.println("livro encontrado por qual e a data de emprestimo");
-                            int data_emp_inserido = scan.nextInt();
-                            int data_dv_md = data_emp_inserido +3;
-                            uso[h].estado_uso(lv[j]);
-                            emp[j] = new EmpresDev(data_emp_inserido, data_dv_md);
-                            //exemplo de como chamar o metodo emprestimo:
-                            //emp[j].estado_uso(lv[0], usu[0]); voce tem que enviar a variavel com tudo!!!
+                           
+                            emp[h].estado_uso(lv[j], uso[h]); //voce tem que enviar a variavel com tudo!!!
                             
                         }
                     }
@@ -121,6 +117,22 @@ public class App {
             
             
         }else if(opc == 4){
+            int procura_opc4;
+            System.out.println("digite o seu codigo de usuario");
+            procura_opc4= scan.nextInt();
+            
+            for(int h=0;h<4;h++){
+                if(uso[h].getNum_ident() == procura_opc4){
+                    System.out.println("ola usuario" +uso[h].getNome());
+                    System.out.println("digite o titulo do livro que deseja devolver");
+                    String procura_livro = scan.nextLine();
+                    for(int j=0;j<4;j++){
+                        if(lv[j].titulo.equals( procura_livro) ){ //.equals() compara o conteúdo das strings nao achei outro modo
+                            System.out.println("livro encontrado ");
+                            emp[h].exibirEmprestimos(uso[h]);
+                            
+                    }
+                    }
             
         }else if(opc == 5){
             System.out.println("livros :");
@@ -160,9 +172,9 @@ public class App {
         
         
         }
+          
         
-        
-        
+                
         
        
     }
