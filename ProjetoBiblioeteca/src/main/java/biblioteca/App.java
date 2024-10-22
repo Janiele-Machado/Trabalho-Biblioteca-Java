@@ -91,10 +91,11 @@ public class App {
             int procura;
             System.out.println("digite o seu codigo de usuario");
             procura= scan.nextInt();
+            scan.nextLine();//para resolver o bug de pular a pergunta;
             
             for(int h=0;h<4;h++){
                 if(uso[h].getNum_ident() == procura){
-                    System.out.println("ola usuario" +uso[h].getNome());
+                    System.out.println("ola usuario: " +uso[h].getNome());
                     System.out.println("digite o titulo do livro que deseja pegar emprestado");
                     String procura_livro = scan.nextLine();
                     for(int j=0;j<4;j++){
