@@ -20,10 +20,6 @@ public class Usuarios {
         return nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public int getNum_ident() {
         return num_ident;
     }
@@ -31,7 +27,7 @@ public class Usuarios {
     public void dados() {
         System.out.println("Usuario: " + this.nome);
         System.out.println("Email: " + this.email);
-        System.out.println("Numero de identificação: " + this.num_ident);
+        System.out.println("Numero de identificacao: " + this.num_ident);
     }
 
     public void delv_uso() {
