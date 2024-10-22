@@ -37,6 +37,7 @@ public class Livros {
         this.numero_exemplares = num_exemplares;
     }
     
+    // Criação de get e set para data de emprestimo
     public LocalDate getData_Emprestimo() {
         return data_Emprestimo;
     }
@@ -44,6 +45,7 @@ public class Livros {
     public void setData_Emprestimo(LocalDate dataEmprestimo) {
         this.data_Emprestimo = dataEmprestimo;
     }
+    // Criação de um metodo para mostrar se ainda tem livros do mesmo tipo
     
     public void estado_livro() {
         if (numero_exemplares == 0) {

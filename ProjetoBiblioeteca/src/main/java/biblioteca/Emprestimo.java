@@ -15,7 +15,7 @@ public class Emprestimo {
             livros.estado_livro();
             this.usu.usu_disp = 1;// Cliente tem um empréstimo ativo
             this.usu.livroEmprestado = this.livros;
-            livros.setDataEmprestimo(LocalDate.now()); // Registrar a data do empréstimo
+            livros.setData_Emprestimo(LocalDate.now()); // Registrar a data do empréstimo
 
         } else {
             System.out.println("Desculpe,Voce ja tem um livro em emprestimo");
@@ -28,7 +28,7 @@ public class Emprestimo {
         if (usu.usu_disp == 1) {
             System.out.println("Livro: " + usu.livroEmprestado.titulo);
             System.out.println("Emprestado por: " + usu.getNome());
-            System.out.println("Na data: " + usu.livroEmprestado.getDataEmprestimo());
+            System.out.println("Na data: " + usu.livroEmprestado.getData_Emprestimo());
             System.out.println("-------------------------------------------");
         }
     }
