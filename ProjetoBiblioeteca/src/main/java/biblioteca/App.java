@@ -120,6 +120,8 @@ public class App {
             int procura_opc4;
             System.out.println("digite o seu codigo de usuario");
             procura_opc4= scan.nextInt();
+            scan.nextLine();//para resolver o bug de pular a pergunta;
+            
             
             for(int h=0;h<4;h++){
                 if(uso[h].getNum_ident() == procura_opc4){
@@ -129,7 +131,7 @@ public class App {
                     for(int j=0;j<4;j++){
                         if(lv[j].titulo.equals( procura_livro) ){ //.equals() compara o conteúdo das strings nao achei outro modo
                             System.out.println("livro encontrado ");
-                            uso[j].delv_uso();
+                            uso[h].delv_uso();
                             
                         }
                     }
