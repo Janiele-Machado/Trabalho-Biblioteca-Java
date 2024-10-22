@@ -129,11 +129,12 @@ public class App {
                     for(int j=0;j<4;j++){
                         if(lv[j].titulo.equals( procura_livro) ){ //.equals() compara o conteúdo das strings nao achei outro modo
                             System.out.println("livro encontrado ");
-                            emp[h].exibirEmprestimos(uso[h]);
+                            uso[j].delv_uso();
                             
+                        }
                     }
-                    }
-            
+                }
+            }
         }else if(opc == 5){
             System.out.println("livros :");
             for(int t=0;t<4;t++){
@@ -155,6 +156,9 @@ public class App {
             
             
         }else if(opc ==7){
+            for(int h=0;h<4;h++){
+                emp[h].exibirEmprestimos(uso[h]);
+            }
             
             
         }else if(opc==8){
