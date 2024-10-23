@@ -23,12 +23,13 @@ public class Emprestimo {
 
     }
 
-    public void exibirEmprestimos(Usuarios usu) {//retirei os this pois eles estavam dando error de Null;
-
-        if (usu.usu_disp == 1) {
-            System.out.println("Livro: " + usu.livroEmprestado.titulo);
-            System.out.println("Emprestado por: " + usu.getNome());
-            System.out.println("Na data: " + usu.livroEmprestado.getData_Emprestimo());
+    public void exibirEmprestimos(Usuarios usu) {//resolvi o uso do this;
+        this.usu=usu;
+        
+        if (this.usu.usu_disp == 1) {
+            System.out.println("Livro: " + this.usu.livroEmprestado.titulo);
+            System.out.println("Emprestado por: " + this.usu.getNome());
+            System.out.println("Na data: " + this.usu.livroEmprestado.getData_Emprestimo());
             System.out.println("-------------------------------------------");
         }
     }
