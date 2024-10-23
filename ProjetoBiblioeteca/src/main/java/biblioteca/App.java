@@ -23,11 +23,11 @@ public class App {
         int opc = 0;
         while (opc != 8) {
 
-            System.out.println("digite a opçao que gostaria de executar");
+            System.out.println("Digite a opcao que gostaria de executar:");
             System.out.println("1 cadastro clinte");
             System.out.println("2 cadastro livro");
             System.out.println("3 emprestimos");
-            System.out.println("4 devoluçao");
+            System.out.println("4 devolucao");
             System.out.println("5 listagem livros");
             System.out.println("6 listagem de clientes");
             System.out.println("7 livros emprestados");
@@ -39,19 +39,19 @@ public class App {
 
                 do {
                     if (i < 4) {
-                        System.out.println("para cadastrar o " + (i + 1) + " clinte preencha os campos abaixo");
-                        System.out.println("digite o nome de usuario");
+                        System.out.println("Para cadastrar o " + (i + 1) + " cleinte preencha os campos abaixo");
+                        System.out.println("Digite o nome de usuario:");
                         nome_inserido = scan.nextLine();
-                        System.out.println("digite o email do usuario");
+                        System.out.println("Digite o email do usuario:");
                         email_inserido = scan.nextLine();
-                        System.out.println("digite o numero de indentificacao");
+                        System.out.println("Digite o numero de indentificacao:");
                         num_inserido = scan.nextInt();
                         scan.nextLine();//para resolver o bug de pular a pergunta; 
 
                         uso[i] = new Usuarios(nome_inserido, email_inserido, num_inserido);
                         i++;
                     } else {
-                        System.out.println("desculpe nao ha mais espaco para novos clintes");
+                        System.out.println("desculpe nao ha mais espaco para novos clientes");
                     }
 
                 } while (i < 4);
@@ -60,15 +60,15 @@ public class App {
 
                 do {
                     if (f < 4) {
-                        System.out.println("para cadastrar o " + (f + 1) + " livro preencha os campos abaixo");
-                        System.out.println("digite o titulo do livro");
+                        System.out.println("Para cadastrar o " + (f + 1) + " livro preencha os campos abaixo");
+                        System.out.println("Digite o titulo do livro:");
                         titulo_inserido = scan.nextLine();
-                        System.out.println("digite os autores do livro");
+                        System.out.println("Digite os autores do livro:");
                         autor_inserido = scan.nextLine();
-                        System.out.println("digite o ano de publicacao");
+                        System.out.println("Digite o ano de publicacao:");
                         ano_publi_inserido = scan.nextInt();
                         scan.nextLine();//para resolver o bug de pular a pergunta;
-                        System.out.println("digite o numero de exemplares");
+                        System.out.println("Digite o numero de exemplares:");
                         num_exemplares_inserido = scan.nextInt();
                         scan.nextLine();//para resolver o bug de pular a pergunta;
                         lv[f] = new Livros(titulo_inserido, autor_inserido, ano_publi_inserido, num_exemplares_inserido);
