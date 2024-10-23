@@ -102,6 +102,7 @@ public class App {
 
                     } else {
                         System.out.println("desculpa nao achamos voce no nosso sistema");
+                        break;
                     }
                 }
 
