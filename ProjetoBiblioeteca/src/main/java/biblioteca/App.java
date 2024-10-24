@@ -16,6 +16,7 @@ public class App {
 
         int i = 0;
         int f = 0;
+         int n_lv =0;
         Usuarios uso[] = new Usuarios[4];
         Livros lv[] = new Livros[4];
         Emprestimo emp[] = new Emprestimo[4];
@@ -73,6 +74,8 @@ public class App {
                         scan.nextLine();//para resolver o bug de pular a pergunta;
                         lv[f] = new Livros(titulo_inserido, autor_inserido, ano_publi_inserido, num_exemplares_inserido);
                         f++;
+                        
+                        n_lv++;
 
                     } else {
                         System.out.println("desculpe nao ha mais espaco novos livros");
@@ -107,6 +110,7 @@ public class App {
                 }
 
             } else if (opc == 4) {
+                if(n_lv >0){
                 int procura_opc4;
                 System.out.println("digite o seu codigo de usuario");
                 procura_opc4 = scan.nextInt();
@@ -124,9 +128,17 @@ public class App {
 
                             }
                         }
+                    }else {
+                        System.out.println("desculpa nao achamos voce no nosso sistema");
+                        break;
                     }
                 }
+                }else{
+                    System.out.println("desculpe mais nao existem livros cadastrados");
+                    
+                }
             } else if (opc == 5) {
+               if(n_lv >0){
                 System.out.println("livros :");
                 for (int t = 0; t < 4; t++) {
                     System.out.println("titulo : " + lv[t].titulo);
@@ -134,7 +146,10 @@ public class App {
                     System.out.println("ano de publicacao: " + lv[t].getAno_publi());
                     System.out.println("numero de exemplares" + lv[t].getNum_exemplares());
                     System.out.println("-----------------------------------------------------------");
-                }
+                } 
+               }else{
+                   System.out.println("desculpe mais nao ha livros cadastrados para listagem");
+               } 
 
             } else if (opc == 6) {
                 System.out.println("clientes :");
@@ -145,10 +160,14 @@ public class App {
                 }
 
             } else if (opc == 7) {
+                if(n_lv >0){
                 System.out.println("Registro de emprestimos");
                 for (int h = 0; h < 4; h++) {
                     emp[h] = new Emprestimo();
                     emp[h].exibirEmprestimos(uso[h]);
+                }
+                }else{
+                    System.out.println("nao ha nenhum livro cadastrado para listagem");
                 }
 
             } else if (opc == 8) {
