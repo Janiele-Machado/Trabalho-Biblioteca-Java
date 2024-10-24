@@ -38,6 +38,7 @@ public class Usuarios {
     public void delv_uso() {
         if (usu_disp == 1 && livroEmprestado != null) {
             livroEmprestado.setData_Emprestimo(null);//remove a data de emprestimo;
+            livroEmprestado.setDataDevolucao(null);//remove a data de devolução;
             livroEmprestado.delv();
             livroEmprestado = null;
             usu_disp = 0;

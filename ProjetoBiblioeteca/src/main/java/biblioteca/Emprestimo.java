@@ -17,7 +17,8 @@ public class Emprestimo {
 
             this.usu.usu_disp = 1;// Cliente tem um empréstimo ativo
             this.usu.livroEmprestado = this.livros;
-            this.livros.setData_Emprestimo(LocalDate.now()); // Registrar a data do empréstimo
+            this.livros.setData_Emprestimo(LocalDate.now()); // Registra a data do empréstimo
+            this.livros.setDataDevolucao(this.livros.getData_Emprestimo()); //aciona o método que calcula a data de devolução;
 
         } else if (this.livros.getNum_exemplares() == 0) { //retorno pro caso do numero de livros acabarem; 
             this.livros.estado_livro();

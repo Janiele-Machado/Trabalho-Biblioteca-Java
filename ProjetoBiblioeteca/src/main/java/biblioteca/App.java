@@ -109,6 +109,8 @@ public class App {
                                     emp[h] = new Emprestimo();
                                     emp[h].estado_uso(lv[j], uso[h]); //voce tem que enviar a variavel com tudo!!!
                                     livroEncontrado = true;
+                                    System.out.println("Data de Devolucao do livro: "+lv[j].getDataDevolucao());//mostra o dia da devolução;
+
                                     break; //para quando achar o livro,o for nao continuar rodando 
                                 }
                             }

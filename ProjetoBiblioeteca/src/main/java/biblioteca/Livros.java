@@ -10,6 +10,7 @@ public class Livros {
     private int ano_publi;
     private int numero_exemplares;
     private LocalDate data_Emprestimo;
+    private LocalDate dataDevolucao;
 
     // Construtores da classe livro
     public Livros(String titulo, String autor, int ano_publi, int num_exemplares) {
@@ -45,6 +46,18 @@ public class Livros {
     public void setData_Emprestimo(LocalDate dataEmprestimo) {
         this.data_Emprestimo = dataEmprestimo;
     }
+
+    public LocalDate getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(LocalDate dataEmprestimo) {
+        this.dataDevolucao = dataEmprestimo;
+                // Calcula a data de devolução, a partir do dia do empréstimo
+        this.dataDevolucao= dataEmprestimo.plusDays(7); // Adicionando 7 dias à data do empréstimo
+
+    }
+    
     // Criação de um metodo para mostrar se ainda tem livros do mesmo tipo
     
     public void estado_livro() {
@@ -54,8 +67,7 @@ public class Livros {
         } else {
 
             numero_exemplares--;
-            System.out.println("Um exemplar foi emprestado. Exemplares restantes: " + numero_exemplares);
-
+            System.out.println("Um exemplar foi emprestado com sucesso. Exemplares restantes: " + numero_exemplares);
         }
 
     }
