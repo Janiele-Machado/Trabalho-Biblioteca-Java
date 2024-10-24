@@ -16,8 +16,8 @@ public class App {
 
         int i = 0;
         int f = 0;
-         int n_lv =0;
-         int n_uso=0;
+        int n_lv = 0;
+        int n_uso = 0;
         Usuarios uso[] = new Usuarios[4];
         Livros lv[] = new Livros[4];
         Emprestimo emp[] = new Emprestimo[4];
@@ -78,7 +78,7 @@ public class App {
                         scan.nextLine();//para resolver o bug de pular a pergunta;
                         lv[f] = new Livros(titulo_inserido, autor_inserido, ano_publi_inserido, num_exemplares_inserido);
                         f++;
-                        
+
                         n_lv++;
 
                     } else {
@@ -88,109 +88,122 @@ public class App {
                 } while (f < 4);
 
             } else if (opc == 3) {
-                if(n_lv>0){
-                int procura;
-                System.out.println("Digite o seu numero de identificacao de usuario");
-                procura = scan.nextInt();
-                scan.nextLine();//para resolver o bug de pular a pergunta;
-                boolean usuarioEncontrado = false; //  para saber se o usuário foi encontrado
+                if (n_lv > 0) {
+                    int procura;
+                    System.out.println("Digite o seu numero de identificacao de usuario");
+                    procura = scan.nextInt();
+                    scan.nextLine();//para resolver o bug de pular a pergunta;
+                    boolean usuarioEncontrado = false; //  para saber se o usuário foi encontrado
 
-                for (int h = 0; h < 4; h++) {
-                    if (uso[h].getNum_ident() == procura) {
-                        System.out.println("Ola usuario: " + uso[h].getNome());
-                        usuarioEncontrado = true; // Usuario foi encontrado
-                        System.out.println("Digite o titulo do livro que deseja pegar emprestado:");
-                        String procura_livro = scan.nextLine();
-                        boolean livroEncontrado = false; // para saber se o livro foi encontrado
+                    for (int h = 0; h < 4; h++) {
+                        if (uso[h].getNum_ident() == procura) {
+                            System.out.println("Ola usuario: " + uso[h].getNome());
+                            usuarioEncontrado = true; // Usuario foi encontrado
+                            System.out.println("Digite o titulo do livro que deseja pegar emprestado:");
+                            String procura_livro = scan.nextLine();
+                            boolean livroEncontrado = false; // para saber se o livro foi encontrado
 
-                        for (int j = 0; j < 4; j++) {
-                            if (lv[j].titulo.equals(procura_livro)) { //.equals() compara o conteúdo das strings nao achei outro modo
-                                System.out.println("Livro encontrado!");
-                                emp[h] = new Emprestimo();
-                                emp[h].estado_uso(lv[j], uso[h]); //voce tem que enviar a variavel com tudo!!!
-                                livroEncontrado = true;
-                                break; //para quando achar o livro,o for nao continuar rodando 
+                            for (int j = 0; j < 4; j++) {
+                                if (lv[j].titulo.equals(procura_livro)) { //.equals() compara o conteúdo das strings nao achei outro modo
+                                    System.out.println("Livro encontrado!");
+                                    emp[h] = new Emprestimo();
+                                    emp[h].estado_uso(lv[j], uso[h]); //voce tem que enviar a variavel com tudo!!!
+                                    livroEncontrado = true;
+                                    break; //para quando achar o livro,o for nao continuar rodando 
+                                }
                             }
+
+                            if (livroEncontrado == false) { //retorno pro caso do usuario digitar um livro invalido;
+                                System.out.println("Desculpe, livro nao encontrado.");
+                            }
+
+                            break; //para quando achar o usuario,o for nao continuar rodando;
                         }
-                        
-                        if (!livroEncontrado) { //retorno pro caso do usuario digitar um livro invalido;
-                            System.out.println("Desculpe, livro nao encontrado.");
-                        }
-                        
-                        break; //para quando achar o usuario,o for nao continuar rodando;
                     }
-                }
-                if (usuarioEncontrado == false) { //pro caso do usuario inserir um codigo invalido;
+                    if (usuarioEncontrado == false) { //pro caso do usuario inserir um codigo invalido;
 
-                    System.out.println("Desculpa, nao achamos voce no nosso sistema");
+                        System.out.println("Desculpa, nao achamos voce no nosso sistema");
 
-                }
-                }else{
+                    }
+                } else {
                     System.out.println("Desculpe, mas nao existem livros cadastrados ");
                 }
 
             } else if (opc == 4) {
-                if(n_lv >0){
-                int procura_opc4;
-                System.out.println("Digite o seu numero de identificacao de usuario");
-                procura_opc4 = scan.nextInt();
-                scan.nextLine();//para resolver o bug de pular a pergunta;
+                if (n_lv > 0) {
+                    int procura_opc4;
+                    System.out.println("Digite o seu numero de identificacao de usuario");
+                    procura_opc4 = scan.nextInt();
+                    scan.nextLine();//para resolver o bug de pular a pergunta;
+                    boolean usuarioEncontrado = false; //  para saber se o usuário foi encontrado
 
-                for (int h = 0; h < 4; h++) {
-                    if (uso[h].getNum_ident() == procura_opc4) {
-                        System.out.println("Ola usuario" + uso[h].getNome());
-                        System.out.println("Digite o titulo do livro que deseja devolver:");
-                        String procura_livro = scan.nextLine();
-                        for (int j = 0; j < 4; j++) {
-                            if (lv[j].titulo.equals(procura_livro)) { //.equals() compara o conteúdo das strings nao achei outro modo
-                                System.out.println("livro encontrado ");
-                                uso[h].delv_uso();
+                    for (int h = 0; h < 4; h++) {
+                        if (uso[h].getNum_ident() == procura_opc4) {
+                            System.out.println("Ola usuario" + uso[h].getNome());
+                            usuarioEncontrado = true; // Usuario foi encontrado
+                            System.out.println("Digite o titulo do livro que deseja devolver:");
+                            String procura_livro = scan.nextLine();
+                            boolean livroEncontrado = false; // para saber se o livro foi encontrado
 
+                            for (int j = 0; j < 4; j++) {
+                                if (lv[j].titulo.equals(procura_livro)) { //.equals() compara o conteúdo das strings nao achei outro modo
+                                    System.out.println("Livro encontrado! ");
+                                    uso[h].delv_uso();
+                                    livroEncontrado = true;
+                                    break; //para quando achar o livro,o for nao continuar rodando 
+                                }
                             }
+                            if (livroEncontrado == false) { //retorno pro caso do usuario digitar um livro invalido;
+                                System.out.println("Desculpe, livro nao encontrado.");
+                            }
+
+                            break; //para quando achar o usuario,o for nao continuar rodando;
                         }
-                    }else {
-                        System.out.println("Desculpa, nao achamos voce no nosso sistema");
-                        break;
                     }
-                }
-                }else{
+                    if (usuarioEncontrado == false) { //pro caso do usuario inserir um codigo invalido;
+
+                        System.out.println("Desculpa, nao achamos voce no nosso sistema");
+
+                    }
+
+                } else {
                     System.out.println("Desculpe, mas nao existem livros cadastrados");
-                    
+
                 }
             } else if (opc == 5) {
-               if(n_lv >0){
-                System.out.println("--------Livros:---------");
-                for (int t = 0; t < 4; t++) {
-                    System.out.println("Titulo : " + lv[t].titulo);
-                    System.out.println("autor : " + lv[t].autor);
-                    System.out.println("ano de publicacao: " + lv[t].getAno_publi());
-                    System.out.println("numero de exemplares" + lv[t].getNum_exemplares());
-                    System.out.println("-----------------------------------------------------------");
-                } 
-               }else{
-                   System.out.println("Desculpe, mas nao ha livros cadastrados para listagem");
-               } 
+                if (n_lv > 0) {
+                    System.out.println("--------Livros:---------");
+                    for (int t = 0; t < 4; t++) {
+                        System.out.println("Titulo : " + lv[t].titulo);
+                        System.out.println("autor : " + lv[t].autor);
+                        System.out.println("ano de publicacao: " + lv[t].getAno_publi());
+                        System.out.println("numero de exemplares" + lv[t].getNum_exemplares());
+                        System.out.println("-----------------------------------------------------------");
+                    }
+                } else {
+                    System.out.println("Desculpe, mas nao ha livros cadastrados para listagem");
+                }
 
             } else if (opc == 6) {
-                if(n_uso>0){
-                System.out.println("---------------Clientes:--------------");
-                for (int t = 0; t < 4; t++) {
-                    uso[t].dados();
-                    System.out.println("---------------------------------------------------------------");
+                if (n_uso > 0) {
+                    System.out.println("---------------Clientes:--------------");
+                    for (int t = 0; t < 4; t++) {
+                        uso[t].dados();
+                        System.out.println("---------------------------------------------------------------");
 
-                }
-                }else{
+                    }
+                } else {
                     System.out.println("Desculpe, nao ha nenhum usuario cadastrado"); //sorry 
                 }
 
             } else if (opc == 7) {
-                if(n_lv >0){
-                System.out.println("-------Registro de Emprestimos---------");
-                for (int h = 0; h < 4; h++) {
-                    emp[h] = new Emprestimo();
-                    emp[h].exibirEmprestimos(uso[h]);
-                }
-                }else{
+                if (n_lv > 0) {
+                    System.out.println("-------Registro de Emprestimos---------");
+                    for (int h = 0; h < 4; h++) {
+                        emp[h] = new Emprestimo();
+                        emp[h].exibirEmprestimos(uso[h]);
+                    }
+                } else {
                     System.out.println("Desculpe, nao ha nenhum livro cadastrado para listagem");
                 }
 
