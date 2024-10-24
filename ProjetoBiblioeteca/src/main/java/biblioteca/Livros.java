@@ -62,7 +62,7 @@ public class Livros {
 
     public void delv() {
         numero_exemplares++;
-        System.out.println("Um exemplar foi devolvido Exemplares disponíveis: " + numero_exemplares);
+        System.out.println("Um exemplar foi devolvido com sucesso ! Exemplares disponiveis: " + numero_exemplares);
     }
 
 }
