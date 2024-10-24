@@ -17,6 +17,7 @@ public class App {
         int i = 0;
         int f = 0;
          int n_lv =0;
+         int n_uso=0;
         Usuarios uso[] = new Usuarios[4];
         Livros lv[] = new Livros[4];
         Emprestimo emp[] = new Emprestimo[4];
@@ -51,6 +52,7 @@ public class App {
 
                         uso[i] = new Usuarios(nome_inserido, email_inserido, num_inserido);
                         i++;
+                        n_uso++;
                     } else {
                         System.out.println("desculpe nao ha mais espaco para novos clientes");
                     }
@@ -84,6 +86,7 @@ public class App {
                 } while (f < 4);
 
             } else if (opc == 3) {
+                if(n_lv>0){
                 int procura;
                 System.out.println("digite o seu codigo de usuario");
                 procura = scan.nextInt();
@@ -119,6 +122,9 @@ public class App {
 
                     System.out.println("Desculpa, nao achamos voce no nosso sistema");
 
+                }
+                }else{
+                    System.out.println("desculpe mais nao existem livros cadastrados ");
                 }
 
             } else if (opc == 4) {
@@ -164,11 +170,15 @@ public class App {
                } 
 
             } else if (opc == 6) {
+                if(n_uso>0){
                 System.out.println("clientes :");
                 for (int t = 0; t < 4; t++) {
                     uso[t].dados();
                     System.out.println("---------------------------------------------------------------");
 
+                }
+                }else{
+                    System.out.println("nao ha nenhum usuario cadastrado"); //sorry 
                 }
 
             } else if (opc == 7) {
