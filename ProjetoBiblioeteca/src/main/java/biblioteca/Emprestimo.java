@@ -11,26 +11,26 @@ public class Emprestimo {
         this.livros = liv;
         this.usu = usu;
 
-        if (this.usu.usu_disp == 0 & this.livros.getNum_exemplares() > 0) {
-            
+        if (this.usu.usu_disp == 0 & this.livros.getNum_exemplares() > 0) { //testa para saber se o livro e o usuario esta disponivel;
+
             this.livros.estado_livro();
-            
+
             this.usu.usu_disp = 1;// Cliente tem um empréstimo ativo
             this.usu.livroEmprestado = this.livros;
-            livros.setData_Emprestimo(LocalDate.now()); // Registrar a data do empréstimo
+            this.livros.setData_Emprestimo(LocalDate.now()); // Registrar a data do empréstimo
 
-        }else if (this.livros.getNum_exemplares() == 0 ) {
-             this.livros.estado_livro();
-            
-        }  else {
+        } else if (this.livros.getNum_exemplares() == 0) { //retorno pro caso do numero de livros acabarem; 
+            this.livros.estado_livro();
+
+        } else { //retorno para o caso do usuario ja ter pegado um livro;
             System.out.println("Desculpe,Voce ja tem um livro em emprestimo");
         }
 
     }
 
     public void exibirEmprestimos(Usuarios usu) {//resolvi o uso do this;
-        this.usu=usu;
-        
+        this.usu = usu;
+
         if (this.usu.usu_disp == 1) {
             System.out.println("Livro: " + this.usu.livroEmprestado.titulo);
             System.out.println("Emprestado por: " + this.usu.getNome());

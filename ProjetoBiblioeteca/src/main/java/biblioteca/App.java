@@ -24,7 +24,7 @@ public class App {
         while (opc != 8) {
 
             System.out.println("Digite a opcao que gostaria de executar:");
-            System.out.println("1 cadastro clinte");
+            System.out.println("1 cadastro cliente");
             System.out.println("2 cadastro livro");
             System.out.println("3 emprestimos");
             System.out.println("4 devolucao");
@@ -85,25 +85,37 @@ public class App {
                 System.out.println("digite o seu codigo de usuario");
                 procura = scan.nextInt();
                 scan.nextLine();//para resolver o bug de pular a pergunta;
+                boolean usuarioEncontrado = false; //  para saber se o usuário foi encontrado
 
                 for (int h = 0; h < 4; h++) {
                     if (uso[h].getNum_ident() == procura) {
                         System.out.println("ola usuario: " + uso[h].getNome());
+                        usuarioEncontrado = true; // Usuario foi encontrado
                         System.out.println("digite o titulo do livro que deseja pegar emprestado");
                         String procura_livro = scan.nextLine();
+                        boolean livroEncontrado = false; // para saber se o livro foi encontrado
+
                         for (int j = 0; j < 4; j++) {
                             if (lv[j].titulo.equals(procura_livro)) { //.equals() compara o conteúdo das strings nao achei outro modo
                                 System.out.println("livro encontrado!");
                                 emp[h] = new Emprestimo();
                                 emp[h].estado_uso(lv[j], uso[h]); //voce tem que enviar a variavel com tudo!!!
-
+                                livroEncontrado = true;
+                                break; //para quando achar o livro,o for nao continuar rodando 
                             }
                         }
-
-                    } else {
-                        System.out.println("desculpa nao achamos voce no nosso sistema");
-                        break;
+                        
+                        if (!livroEncontrado) { //retorno pro caso do usuario digitar um livro invalido;
+                            System.out.println("Desculpe, livro nao encontrado.");
+                        }
+                        
+                        break; //para quando achar o usuario,o for nao continuar rodando;
                     }
+                }
+                if (usuarioEncontrado == false) { //pro caso do usuario inserir um codigo invalido;
+
+                    System.out.println("Desculpa, nao achamos voce no nosso sistema");
+
                 }
 
             } else if (opc == 4) {
