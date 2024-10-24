@@ -25,15 +25,17 @@ public class App {
         int opc = 0;
         while (opc != 8) {
 
-            System.out.println("Digite a opcao que gostaria de executar:");
-            System.out.println("1 cadastro cliente");
-            System.out.println("2 cadastro livro");
-            System.out.println("3 emprestimos");
-            System.out.println("4 devolucao");
-            System.out.println("5 listagem livros");
-            System.out.println("6 listagem de clientes");
-            System.out.println("7 livros emprestados");
-            System.out.println("8 sair");
+            System.out.println("-------------MENU BIBLIOTECA-------------");
+            System.out.println("|Digite a opcao que gostaria de executar:|");
+            System.out.println("|1- Cadastro De Cliente                  |");
+            System.out.println("|2- Cadastro De Livro                    |");
+            System.out.println("|3- Emprestimos                          |");
+            System.out.println("|4- Devolucao                            |");
+            System.out.println("|5- Listagem De Livros                   |");
+            System.out.println("|6- Listagem De Clientes                 |");
+            System.out.println("|7- Listagem De Livros Emprestados       |");
+            System.out.println("|8- Sair                                 |");
+            System.out.println("------------------------------------------");
             opc = scan.nextInt();
             scan.nextLine();//para resolver o bug de pular a pergunta;
 
@@ -41,12 +43,12 @@ public class App {
 
                 do {
                     if (i < 4) {
-                        System.out.println("Para cadastrar o " + (i + 1) + " cleinte preencha os campos abaixo");
+                        System.out.println("Para cadastrar o " + (i + 1) + " -o cliente preencha os campos abaixo:");
                         System.out.println("Digite o nome de usuario:");
                         nome_inserido = scan.nextLine();
                         System.out.println("Digite o email do usuario:");
                         email_inserido = scan.nextLine();
-                        System.out.println("Digite o numero de indentificacao:");
+                        System.out.println("Digite o numero de identificacao:");
                         num_inserido = scan.nextInt();
                         scan.nextLine();//para resolver o bug de pular a pergunta; 
 
@@ -54,7 +56,7 @@ public class App {
                         i++;
                         n_uso++;
                     } else {
-                        System.out.println("desculpe nao ha mais espaco para novos clientes");
+                        System.out.println("Desculpe nao ha mais espaco para novos clientes");
                     }
 
                 } while (i < 4);
@@ -63,7 +65,7 @@ public class App {
 
                 do {
                     if (f < 4) {
-                        System.out.println("Para cadastrar o " + (f + 1) + " livro preencha os campos abaixo");
+                        System.out.println("Para cadastrar o " + (f + 1) + " -o livro preencha os campos abaixo");
                         System.out.println("Digite o titulo do livro:");
                         titulo_inserido = scan.nextLine();
                         System.out.println("Digite os autores do livro:");
@@ -80,7 +82,7 @@ public class App {
                         n_lv++;
 
                     } else {
-                        System.out.println("desculpe nao ha mais espaco novos livros");
+                        System.out.println("Desculpe nao ha mais espaco novos livros");
                     }
 
                 } while (f < 4);
@@ -88,22 +90,22 @@ public class App {
             } else if (opc == 3) {
                 if(n_lv>0){
                 int procura;
-                System.out.println("digite o seu codigo de usuario");
+                System.out.println("Digite o seu numero de identificacao de usuario");
                 procura = scan.nextInt();
                 scan.nextLine();//para resolver o bug de pular a pergunta;
                 boolean usuarioEncontrado = false; //  para saber se o usuário foi encontrado
 
                 for (int h = 0; h < 4; h++) {
                     if (uso[h].getNum_ident() == procura) {
-                        System.out.println("ola usuario: " + uso[h].getNome());
+                        System.out.println("Ola usuario: " + uso[h].getNome());
                         usuarioEncontrado = true; // Usuario foi encontrado
-                        System.out.println("digite o titulo do livro que deseja pegar emprestado");
+                        System.out.println("Digite o titulo do livro que deseja pegar emprestado:");
                         String procura_livro = scan.nextLine();
                         boolean livroEncontrado = false; // para saber se o livro foi encontrado
 
                         for (int j = 0; j < 4; j++) {
                             if (lv[j].titulo.equals(procura_livro)) { //.equals() compara o conteúdo das strings nao achei outro modo
-                                System.out.println("livro encontrado!");
+                                System.out.println("Livro encontrado!");
                                 emp[h] = new Emprestimo();
                                 emp[h].estado_uso(lv[j], uso[h]); //voce tem que enviar a variavel com tudo!!!
                                 livroEncontrado = true;
@@ -124,20 +126,20 @@ public class App {
 
                 }
                 }else{
-                    System.out.println("desculpe mais nao existem livros cadastrados ");
+                    System.out.println("Desculpe, mas nao existem livros cadastrados ");
                 }
 
             } else if (opc == 4) {
                 if(n_lv >0){
                 int procura_opc4;
-                System.out.println("digite o seu codigo de usuario");
+                System.out.println("Digite o seu numero de identificacao de usuario");
                 procura_opc4 = scan.nextInt();
                 scan.nextLine();//para resolver o bug de pular a pergunta;
 
                 for (int h = 0; h < 4; h++) {
                     if (uso[h].getNum_ident() == procura_opc4) {
-                        System.out.println("ola usuario" + uso[h].getNome());
-                        System.out.println("digite o titulo do livro que deseja devolver");
+                        System.out.println("Ola usuario" + uso[h].getNome());
+                        System.out.println("Digite o titulo do livro que deseja devolver:");
                         String procura_livro = scan.nextLine();
                         for (int j = 0; j < 4; j++) {
                             if (lv[j].titulo.equals(procura_livro)) { //.equals() compara o conteúdo das strings nao achei outro modo
@@ -147,56 +149,56 @@ public class App {
                             }
                         }
                     }else {
-                        System.out.println("desculpa nao achamos voce no nosso sistema");
+                        System.out.println("Desculpa, nao achamos voce no nosso sistema");
                         break;
                     }
                 }
                 }else{
-                    System.out.println("desculpe mais nao existem livros cadastrados");
+                    System.out.println("Desculpe, mas nao existem livros cadastrados");
                     
                 }
             } else if (opc == 5) {
                if(n_lv >0){
-                System.out.println("livros :");
+                System.out.println("--------Livros:---------");
                 for (int t = 0; t < 4; t++) {
-                    System.out.println("titulo : " + lv[t].titulo);
+                    System.out.println("Titulo : " + lv[t].titulo);
                     System.out.println("autor : " + lv[t].autor);
                     System.out.println("ano de publicacao: " + lv[t].getAno_publi());
                     System.out.println("numero de exemplares" + lv[t].getNum_exemplares());
                     System.out.println("-----------------------------------------------------------");
                 } 
                }else{
-                   System.out.println("desculpe mais nao ha livros cadastrados para listagem");
+                   System.out.println("Desculpe, mas nao ha livros cadastrados para listagem");
                } 
 
             } else if (opc == 6) {
                 if(n_uso>0){
-                System.out.println("clientes :");
+                System.out.println("---------------Clientes:--------------");
                 for (int t = 0; t < 4; t++) {
                     uso[t].dados();
                     System.out.println("---------------------------------------------------------------");
 
                 }
                 }else{
-                    System.out.println("nao ha nenhum usuario cadastrado"); //sorry 
+                    System.out.println("Desculpe, nao ha nenhum usuario cadastrado"); //sorry 
                 }
 
             } else if (opc == 7) {
                 if(n_lv >0){
-                System.out.println("Registro de emprestimos");
+                System.out.println("-------Registro de Emprestimos---------");
                 for (int h = 0; h < 4; h++) {
                     emp[h] = new Emprestimo();
                     emp[h].exibirEmprestimos(uso[h]);
                 }
                 }else{
-                    System.out.println("nao ha nenhum livro cadastrado para listagem");
+                    System.out.println("Desculpe, nao ha nenhum livro cadastrado para listagem");
                 }
 
             } else if (opc == 8) {
-                System.out.println("obrigado e ate mais");
+                System.out.println("Obrigado e ate mais");
 
             } else {
-                System.out.println("opcao invalida tente novamente");
+                System.out.println("Opcao invalida tente novamente");
             }
 
         }
