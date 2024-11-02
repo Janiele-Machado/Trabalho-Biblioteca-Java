@@ -41,21 +41,38 @@ public class App {
             scan.nextLine();//para resolver o bug de pular a pergunta;
 
             if (opc == 1) {
-
+                
+               boolean entrada_valida ;
                 do {
                     if (i < 4) {
-                        System.out.println("Para cadastrar o " + (i + 1) + " -o cliente preencha os campos abaixo:");
-                        System.out.println("Digite o nome de usuario:");
-                        nome_inserido = scan.nextLine();
-                        System.out.println("Digite o email do usuario:");
-                        email_inserido = scan.nextLine();
-                        System.out.println("Digite o numero de identificacao:");
-                        num_inserido = scan.nextInt();
-                        scan.nextLine();//para resolver o bug de pular a pergunta; 
+                        entrada_valida = false;
+                        while(!entrada_valida){
+                            try{
+                                System.out.println("Para cadastrar o " + (i + 1) + " -o cliente preencha os campos abaixo:");                       
+                                System.out.println("Digite o nome de usuario:");
+                                nome_inserido = scan.nextLine();                       
+                                System.out.println("Digite o email do usuario:");
+                                email_inserido = scan.nextLine();
+                                System.out.println("Digite o numero de identificacao:");
+                                String input = scan.nextLine();
+                                num_inserido = Integer.parseInt(input);// Tenta converter para int
+                                // Se não lançar exceção, significa que a entrada é válida
+                                uso[i] = new Usuarios(nome_inserido, email_inserido, num_inserido);
+                                 entrada_valida = true;
+                                 n_uso++;
+                                 i++;
+                                 
+                             }catch (NumberFormatException e) {
+                                    System.out.println("Entrada inválida. Por favor, digite apenas números inteiros para o número de identificação resgistro nao foi feito.");
+                            
+                            }catch(IllegalArgumentException e){
+                                System.out.println(e.getMessage());
+                                
+                            }
 
-                        uso[i] = new Usuarios(nome_inserido, email_inserido, num_inserido);
-                        i++;
-                        n_uso++;
+                        }
+                        
+                        
                     } else {
                         System.out.println("Desculpe nao ha mais espaco para novos clientes");
                     }
@@ -63,24 +80,45 @@ public class App {
                 } while (i < 4);
 
             } else if (opc == 2) {
+                boolean entrada_valida = false;
 
                 do {
                     if (f < 4) {
+                        while(!entrada_valida){
+                        
+                        
+                        try{
                         System.out.println("Para cadastrar o " + (f + 1) + " -o livro preencha os campos abaixo");
                         System.out.println("Digite o titulo do livro:");
                         titulo_inserido = scan.nextLine();
                         System.out.println("Digite os autores do livro:");
                         autor_inserido = scan.nextLine();
                         System.out.println("Digite o ano de publicacao:");
-                        ano_publi_inserido = scan.nextInt();
+                        String ano_p = scan.nextLine();
                         scan.nextLine();//para resolver o bug de pular a pergunta;
                         System.out.println("Digite o numero de exemplares:");
-                        num_exemplares_inserido = scan.nextInt();
+                        String exemp = scan.nextLine();
                         scan.nextLine();//para resolver o bug de pular a pergunta;
+                         ano_publi_inserido = Integer.parseInt(ano_p);// Tenta converter para int
+                         num_exemplares_inserido = Integer.parseInt(exemp);// Tenta converter para int
+                         
                         lv[f] = new Livros(titulo_inserido, autor_inserido, ano_publi_inserido, num_exemplares_inserido);
                         f++;
 
                         n_lv++;
+                        }catch(NumberFormatException e){
+                            System.out.println("nao pode colocar letras no campo: numero de exemplares");
+                            
+                            break;
+                            
+                            
+                        }catch(IllegalArgumentException e){
+                            System.out.println(e.getMessage());
+                            
+                            break;
+                            
+                        }
+                        }
 
                     } else {
                         System.out.println("Desculpe nao ha mais espaco novos livros");

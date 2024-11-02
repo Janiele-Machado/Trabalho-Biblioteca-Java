@@ -15,6 +15,7 @@ public class Usuarios {
             throw new IllegalArgumentException("O nome não pode conter números.");
         }
         
+        
         this.nome = nome;
         this.email = email;
         this.num_ident = num_ident;
