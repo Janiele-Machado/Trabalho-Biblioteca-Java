@@ -2,6 +2,9 @@ package biblioteca;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class App {
 
@@ -24,7 +27,7 @@ public class App {
         Emprestimo emp[] = new Emprestimo[4];
 
         int opc = 0;
-        while (opc != 8) {
+        while (opc != 9) {
 
             System.out.println("-------------MENU BIBLIOTECA-------------");
             System.out.println("|Digite a opcao que gostaria de executar:|");
@@ -35,7 +38,8 @@ public class App {
             System.out.println("|5- Listagem De Livros                   |");
             System.out.println("|6- Listagem De Clientes                 |");
             System.out.println("|7- Listagem De Livros Emprestados       |");
-            System.out.println("|8- Sair                                 |");
+            System.out.println("|8- Salvar                               |");
+            System.out.println("|9- Sair                                 |");
             System.out.println("------------------------------------------");
             opc = scan.nextInt();
             scan.nextLine();//para resolver o bug de pular a pergunta;
@@ -247,8 +251,10 @@ public class App {
                 } else {
                     System.out.println("Desculpe, nao ha nenhum livro cadastrado para listagem");
                 }
-
-            } else if (opc == 8) {
+            }else if(opc==8){
+                
+                
+            } else if (opc == 9) {
                 System.out.println("Obrigado e ate mais");
 
             } else {
