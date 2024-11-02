@@ -84,11 +84,14 @@ public class App {
                 } while (i < 4);
 
             } else if (opc == 2) {
-                boolean entrada_valida = false;
+                
 
-                do {
-                    if (f < 4) {
+                while (f < 4){
+                    boolean entrada_valida = false;
+
+                  
                         while(!entrada_valida){
+                              if (f < 4) {
                         
                         
                         try{
@@ -99,15 +102,14 @@ public class App {
                         autor_inserido = scan.nextLine();
                         System.out.println("Digite o ano de publicacao:");
                         String ano_p = scan.nextLine();
-                        scan.nextLine();//para resolver o bug de pular a pergunta;
                         System.out.println("Digite o numero de exemplares:");
-                        String exemp = scan.nextLine();
-                        scan.nextLine();//para resolver o bug de pular a pergunta;
+                        String exemp = scan.nextLine();                       
                          ano_publi_inserido = Integer.parseInt(ano_p);// Tenta converter para int
                          num_exemplares_inserido = Integer.parseInt(exemp);// Tenta converter para int
                          
                         lv[f] = new Livros(titulo_inserido, autor_inserido, ano_publi_inserido, num_exemplares_inserido);
                         f++;
+                        entrada_valida = true;
 
                         n_lv++;
                         }catch(NumberFormatException e){
@@ -122,13 +124,13 @@ public class App {
                             break;
                             
                         }
-                        }
+                    
 
                     } else {
                         System.out.println("Desculpe nao ha mais espaco novos livros");
                     }
-
-                } while (f < 4);
+                    }
+                } 
 
             } else if (opc == 3) {
                 if (n_lv > 0) {
@@ -252,6 +254,38 @@ public class App {
                     System.out.println("Desculpe, nao ha nenhum livro cadastrado para listagem");
                 }
             }else if(opc==8){
+               // Tenta criar um PrintWriter para escrever em "dados_biblioteca.txt"
+                try (PrintWriter writer = new PrintWriter(new FileWriter("dados_biblioteca.txt"))) {
+                    // salvar usuarios
+                    writer.println("------Usuarios------");
+                    for(int j=0; j<n_uso;j++){
+                        writer.println("nome: " +uso[j].getNome());
+                        writer.println("email: " +uso[j].getEmail());
+                        writer.println("numero de indentificacao " +uso[j].getNum_ident());
+                    }
+                    // salvar livros
+                    writer.println("------livros------");
+                    for(int j=0; j<n_lv;j++){
+                        writer.println("tiulo:"+ lv[j].titulo );
+                        writer.println("autor:"+ lv[j].autor);
+                        writer.println("ano de publicacao: "+ lv[j].getAno_publi());
+                        writer.println("numero de exemplares:" +lv[j].getNum_exemplares() );
+                        
+                        
+                    }
+                    // salvar emprestimo
+                    writer.println("------emprestimos------");
+                    for(int j=0; j< n_uso; j++){
+                        // nao esta  funcionando
+                        writer.println(emp[j].exibirEmprestimos(uso[j]));
+                    }
+                    System.out.println("Dados salvos com sucesso em dados_biblioteca.txt");
+                    
+                }catch(IOException e){
+                    //IOException é uma exceção em Java que ocorre em operações de I/O, como falha ao ler/escrever arquivos, arquivos não encontrados ou problemas de rede
+                    //e como se fosse aquela testagem do fopen em c++ so que em tratamento de exeçoes uma exeçao q ja e do java
+                    System.out.println("Erro ao salvar os dados: " + e.getMessage());
+                }
                 
                 
             } else if (opc == 9) {
