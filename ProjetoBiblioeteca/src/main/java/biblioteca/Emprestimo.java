@@ -29,7 +29,7 @@ public class Emprestimo {
 
     }
 
-    public void exibirEmprestimos(Usuarios usu) {//resolvi o uso do this;
+    public void exibirEmprestimos(Usuarios usu ) {//resolvi o uso do this;
         this.usu = usu;
 
         if (this.usu.usu_disp == 1) {
@@ -38,5 +38,31 @@ public class Emprestimo {
             System.out.println("Na data: " + this.usu.livroEmprestado.getData_Emprestimo());
             System.out.println("-------------------------------------------");
         }
+    }
+    //crio gets para auxiliar na opçao salver
+    public String getLivroemp(Usuarios usu){
+        this.usu = usu;
+        if(this.usu.usu_disp ==1){
+            return this.usu.livroEmprestado.titulo;
+            
+        }
+        return null;
+        
+    }
+    public String getNome_emp(Usuarios usu){
+        this.usu=usu;
+        if(this.usu.usu_disp==1){
+            return this.usu.getNome();
+        }
+        return null;
+        
+    }
+    public LocalDate getdataemp(Usuarios usu){
+        this.usu=usu;
+        if(this.usu.usu_disp==1){
+            return this.usu.livroEmprestado.getData_Emprestimo();
+            
+        }
+        return null;
     }
 }

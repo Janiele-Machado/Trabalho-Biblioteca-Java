@@ -276,8 +276,14 @@ public class App {
                     // salvar emprestimo
                     writer.println("------emprestimos------");
                     for(int j=0; j< n_uso; j++){
-                        // nao esta  funcionando
-                        writer.println(emp[j].exibirEmprestimos(uso[j]));
+                        //esse if sao para evitar o erro caso tente salver algum emprestimo q nao foi feito ja q sao 4 emp;
+                        if(emp[j]!=null){                        
+                        writer.println("titulo do livro :"+emp[j].getLivroemp(uso[j]));                                               
+                        writer.println("nome do usuario: "+emp[j].getNome_emp(uso[j]));                                                
+                        writer.println("data de emprestimo:"+emp[j].getdataemp(uso[j]));
+                        
+                        }
+                        
                     }
                     System.out.println("Dados salvos com sucesso em dados_biblioteca.txt");
                     
