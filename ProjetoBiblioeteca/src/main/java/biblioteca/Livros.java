@@ -14,6 +14,10 @@ public class Livros {
 
     // Construtores da classe livro
     public Livros(String titulo, String autor, int ano_publi, int num_exemplares) {
+        if(autor.matches(".*\\d.*")){
+            throw new IllegalArgumentException("O nome do autor não pode conter números.");
+        }
+        
         this.titulo = titulo;
         this.autor = autor;
         this.ano_publi = ano_publi;
