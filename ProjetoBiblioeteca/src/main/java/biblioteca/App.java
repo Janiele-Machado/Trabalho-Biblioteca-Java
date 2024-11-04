@@ -45,16 +45,16 @@ public class App {
             scan.nextLine();//para resolver o bug de pular a pergunta;
 
             if (opc == 1) {
-                
-               boolean entrada_valida ;
+
+                boolean entrada_valida;
                 do {
                     if (i < 4) {
                         entrada_valida = false;
-                        while(!entrada_valida){
-                            try{
-                                System.out.println("Para cadastrar o " + (i + 1) + " -o cliente preencha os campos abaixo:");                       
+                        while (!entrada_valida) {
+                            try {
+                                System.out.println("Para cadastrar o " + (i + 1) + " -o cliente preencha os campos abaixo:");
                                 System.out.println("Digite o nome de usuario:");
-                                nome_inserido = scan.nextLine();                       
+                                nome_inserido = scan.nextLine();
                                 System.out.println("Digite o email do usuario:");
                                 email_inserido = scan.nextLine();
                                 System.out.println("Digite o numero de identificacao:");
@@ -62,21 +62,20 @@ public class App {
                                 num_inserido = Integer.parseInt(input);// Tenta converter para int
                                 // Se não lançar exceção, significa que a entrada é válida
                                 uso[i] = new Usuarios(nome_inserido, email_inserido, num_inserido);
-                                 entrada_valida = true;
-                                 n_uso++;
-                                 i++;
-                                 
-                             }catch (NumberFormatException e) {
-                                    System.out.println("Entrada inválida. Por favor, digite apenas números inteiros para o número de identificação resgistro nao foi feito.");
-                            
-                            }catch(IllegalArgumentException e){
+                                entrada_valida = true;
+                                n_uso++;
+                                i++;
+
+                            } catch (NumberFormatException e) {
+                                System.out.println("Entrada inválida. Por favor, digite apenas números inteiros para o número de identificação resgistro nao foi feito.");
+
+                            } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
-                                
+
                             }
 
                         }
-                        
-                        
+
                     } else {
                         System.out.println("Desculpe nao ha mais espaco para novos clientes");
                     }
@@ -84,56 +83,51 @@ public class App {
                 } while (i < 4);
 
             } else if (opc == 2) {
-                
 
-                while (f < 4){
+                while (f < 4) {
                     boolean entrada_valida = false;
 
-                  
-                        while(!entrada_valida){
-                              if (f < 4) {
-                        
-                        
-                        try{
-                        System.out.println("Para cadastrar o " + (f + 1) + " -o livro preencha os campos abaixo");
-                        System.out.println("Digite o titulo do livro:");
-                        titulo_inserido = scan.nextLine();
-                        System.out.println("Digite os autores do livro:");
-                        autor_inserido = scan.nextLine();
-                        System.out.println("Digite o ano de publicacao:");
-                        String ano_p = scan.nextLine();
-                        System.out.println("Digite o numero de exemplares:");
-                        String exemp = scan.nextLine();                       
-                         ano_publi_inserido = Integer.parseInt(ano_p);// Tenta converter para int
-                         num_exemplares_inserido = Integer.parseInt(exemp);// Tenta converter para int
-                         
-                        lv[f] = new Livros(titulo_inserido, autor_inserido, ano_publi_inserido, num_exemplares_inserido);
-                        f++;
-                        entrada_valida = true;
+                    while (!entrada_valida) {
+                        if (f < 4) {
 
-                        n_lv++;
-                        }catch(NumberFormatException e){
-                            System.out.println("nao pode colocar letras no campo: numero de exemplares");
-                            
-                            break;
-                            
-                            
-                        }catch(IllegalArgumentException e){
-                            System.out.println(e.getMessage());
-                            
-                            break;
-                            
+                            try {
+                                System.out.println("Para cadastrar o " + (f + 1) + " -o livro preencha os campos abaixo");
+                                System.out.println("Digite o titulo do livro:");
+                                titulo_inserido = scan.nextLine();
+                                System.out.println("Digite os autores do livro:");
+                                autor_inserido = scan.nextLine();
+                                System.out.println("Digite o ano de publicacao:");
+                                String ano_p = scan.nextLine();
+                                System.out.println("Digite o numero de exemplares:");
+                                String exemp = scan.nextLine();
+                                ano_publi_inserido = Integer.parseInt(ano_p);// Tenta converter para int
+                                num_exemplares_inserido = Integer.parseInt(exemp);// Tenta converter para int
+
+                                lv[f] = new Livros(titulo_inserido, autor_inserido, ano_publi_inserido, num_exemplares_inserido);
+                                f++;
+                                entrada_valida = true;
+
+                                n_lv++;
+                            } catch (NumberFormatException e) {
+                                System.out.println("nao pode colocar letras nos campos: numero de exemplares e/ou ano de publicacao");
+
+                                break;
+
+                            } catch (IllegalArgumentException e) {
+                                System.out.println(e.getMessage());
+
+                                break;
+
+                            }
+
+                        } else {
+                            System.out.println("Desculpe nao ha mais espaco novos livros");
                         }
-                    
-
-                    } else {
-                        System.out.println("Desculpe nao ha mais espaco novos livros");
                     }
-                    }
-                } 
+                }
 
             } else if (opc == 3) {
-                if (n_lv > 0) {
+                try {
                     int procura;
                     System.out.println("Digite o seu numero de identificacao de usuario");
                     procura = scan.nextInt();
@@ -154,7 +148,7 @@ public class App {
                                     emp[h] = new Emprestimo();
                                     emp[h].estado_uso(lv[j], uso[h]); //voce tem que enviar a variavel com tudo!!!
                                     livroEncontrado = true;
-                                    System.out.println("Data de Devolucao do livro: "+lv[j].getDataDevolucao());//mostra o dia da devolução;
+                                    System.out.println("Data de Devolucao do livro: " + lv[j].getDataDevolucao());//mostra o dia da devolução;
 
                                     break; //para quando achar o livro,o for nao continuar rodando 
                                 }
@@ -172,12 +166,12 @@ public class App {
                         System.out.println("Desculpa, nao achamos voce no nosso sistema");
 
                     }
-                } else {
-                    System.out.println("Desculpe, mas nao existem livros cadastrados ");
+                } catch (Exception e) {
+                    System.out.println("Desculpe, mas nao existem livros e/ou usuarios cadastrados ");
                 }
 
             } else if (opc == 4) {
-                if (n_lv > 0) {
+                try {
                     int procura_opc4;
                     System.out.println("Digite o seu numero de identificacao de usuario");
                     procura_opc4 = scan.nextInt();
@@ -213,13 +207,13 @@ public class App {
 
                     }
 
-                } else {
-                    System.out.println("Desculpe, mas nao existem livros cadastrados");
+                } catch (Exception e) {
+                    System.out.println("Desculpe, mas nao existem livros e/ou usuarios cadastrados");
 
                 }
             } else if (opc == 5) {
-                if (n_lv > 0) {
-                    System.out.println("--------Livros:---------");
+                try {
+                    System.out.println("--------Listagem de Livros---------");
                     for (int t = 0; t < 4; t++) {
                         System.out.println("Titulo : " + lv[t].titulo);
                         System.out.println("autor : " + lv[t].autor);
@@ -227,73 +221,72 @@ public class App {
                         System.out.println("numero de exemplares" + lv[t].getNum_exemplares());
                         System.out.println("-----------------------------------------------------------");
                     }
-                } else {
+                } catch (Exception e) {
                     System.out.println("Desculpe, mas nao ha livros cadastrados para listagem");
                 }
 
             } else if (opc == 6) {
-                if (n_uso > 0) {
-                    System.out.println("---------------Clientes:--------------");
+                try {
+                    System.out.println("---------------Listagem de Clientes--------------");
                     for (int t = 0; t < 4; t++) {
                         uso[t].dados();
                         System.out.println("---------------------------------------------------------------");
 
                     }
-                } else {
+                } catch (Exception e) {
                     System.out.println("Desculpe, nao ha nenhum usuario cadastrado"); //sorry 
                 }
 
             } else if (opc == 7) {
-                if (n_lv > 0) {
+                try {
                     System.out.println("-------Registro de Emprestimos---------");
                     for (int h = 0; h < 4; h++) {
                         emp[h] = new Emprestimo();
                         emp[h].exibirEmprestimos(uso[h]);
                     }
-                } else {
+                } catch (Exception e) {
                     System.out.println("Desculpe, nao ha nenhum livro cadastrado para listagem");
                 }
-            }else if(opc==8){
-               // Tenta criar um PrintWriter para escrever em "dados_biblioteca.txt"
+
+            } else if (opc == 8) {
+                // Tenta criar um PrintWriter para escrever em "dados_biblioteca.txt"
                 try (PrintWriter writer = new PrintWriter(new FileWriter("dados_biblioteca.txt"))) {
                     // salvar usuarios
                     writer.println("------Usuarios------");
-                    for(int j=0; j<n_uso;j++){
-                        writer.println("nome: " +uso[j].getNome());
-                        writer.println("email: " +uso[j].getEmail());
-                        writer.println("numero de indentificacao " +uso[j].getNum_ident());
+                    for (int j = 0; j < n_uso; j++) {
+                        writer.println("nome: " + uso[j].getNome());
+                        writer.println("email: " + uso[j].getEmail());
+                        writer.println("numero de indentificacao " + uso[j].getNum_ident());
                     }
                     // salvar livros
                     writer.println("------livros------");
-                    for(int j=0; j<n_lv;j++){
-                        writer.println("tiulo:"+ lv[j].titulo );
-                        writer.println("autor:"+ lv[j].autor);
-                        writer.println("ano de publicacao: "+ lv[j].getAno_publi());
-                        writer.println("numero de exemplares:" +lv[j].getNum_exemplares() );
-                        
-                        
+                    for (int j = 0; j < n_lv; j++) {
+                        writer.println("tiulo:" + lv[j].titulo);
+                        writer.println("autor:" + lv[j].autor);
+                        writer.println("ano de publicacao: " + lv[j].getAno_publi());
+                        writer.println("numero de exemplares:" + lv[j].getNum_exemplares());
+
                     }
                     // salvar emprestimo
                     writer.println("------emprestimos------");
-                    for(int j=0; j< n_uso; j++){
+                    for (int j = 0; j < n_uso; j++) {
                         //esse if sao para evitar o erro caso tente salver algum emprestimo q nao foi feito ja q sao 4 emp;
-                        if(emp[j]!=null){                        
-                        writer.println("titulo do livro :"+emp[j].getLivroemp(uso[j]));                                               
-                        writer.println("nome do usuario: "+emp[j].getNome_emp(uso[j]));                                                
-                        writer.println("data de emprestimo:"+emp[j].getdataemp(uso[j]));
-                        
+                        if (emp[j] != null) {
+                            writer.println("titulo do livro :" + emp[j].getLivroemp(uso[j]));
+                            writer.println("nome do usuario: " + emp[j].getNome_emp(uso[j]));
+                            writer.println("data de emprestimo:" + emp[j].getdataemp(uso[j]));
+
                         }
-                        
+
                     }
                     System.out.println("Dados salvos com sucesso em dados_biblioteca.txt");
-                    
-                }catch(IOException e){
+
+                } catch (IOException e) {
                     //IOException é uma exceção em Java que ocorre em operações de I/O, como falha ao ler/escrever arquivos, arquivos não encontrados ou problemas de rede
                     //e como se fosse aquela testagem do fopen em c++ so que em tratamento de exeçoes uma exeçao q ja e do java
                     System.out.println("Erro ao salvar os dados: " + e.getMessage());
                 }
-                
-                
+
             } else if (opc == 9) {
                 System.out.println("Obrigado e ate mais");
 
