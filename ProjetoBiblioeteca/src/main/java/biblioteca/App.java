@@ -163,7 +163,7 @@ public class App {
                             break; //para quando achar o usuario,o for nao continuar rodando;
                         }
                     }
-                    if (usuarioEncontrado == false) { //pro caso do usuario inserir um codigo invalido;
+                    if (usuarioEncontrado == false) { //para o caso do usuario inserir um codigo invalido;
 
                         System.out.println("Desculpa, nao achamos voce no nosso sistema");
 
@@ -196,14 +196,14 @@ public class App {
                                     break; //para quando achar o livro,o for nao continuar rodando 
                                 }
                             }
-                            if (livroEncontrado == false) { //retorno pro caso do usuario digitar um livro invalido;
+                            if (livroEncontrado == false) { //retorno para o caso do usuario digitar um livro invalido;
                                 System.out.println("Desculpe, livro nao encontrado.");
                             }
 
                             break; //para quando achar o usuario,o for nao continuar rodando;
                         }
                     }
-                    if (usuarioEncontrado == false) { //pro caso do usuario inserir um codigo invalido;
+                    if (usuarioEncontrado == false) { //para o caso do usuario inserir um codigo invalido;
 
                         System.out.println("Desculpa, nao achamos voce no nosso sistema");
 
@@ -223,7 +223,7 @@ public class App {
                         System.out.println("numero de exemplares" + lv[t].getNum_exemplares());
                         System.out.println("-----------------------------------------------------------");
                     }
-                } catch (Exception e) {
+                } catch (Exception e) { //retorno para o caso da pessoa pedir para listar livros sem antes cadastrar;
                     System.out.println("Desculpe, mas nao ha livros cadastrados para listagem");
                 }
 
@@ -235,7 +235,7 @@ public class App {
                         System.out.println("---------------------------------------------------------------");
 
                     }
-                } catch (Exception e) {
+                } catch (Exception e) {//retorno para o caso da pessoa pedir para listar livros sem antes cadastrar;
                     System.out.println("Desculpe, nao ha usuarios cadastrado");
                 }
 
@@ -247,7 +247,7 @@ public class App {
                         emp[h].exibirEmprestimos(uso[h]);
                     }
                 } catch (Exception e) {
-                    System.out.println("Desculpe, nao ha nenhum livro cadastrado para listagem");
+                    System.out.println("Desculpe, nao ha nenhum livro e/ou usuario cadastrado para listagem");
                 }
 
             } else if (opc == 8) {
@@ -303,7 +303,7 @@ public class App {
                         lv[3] = null;//limpa a ultima posição
                         System.out.println("O livro '" + tituloExclu + "' foi excluído com sucesso.");
                         livroEncontrado = true;
-                        n_lv--;
+                        n_lv--;//faz o decremento na quantidade de livros cadastrados;
                         f--;
                         break;
                     }
@@ -327,7 +327,7 @@ public class App {
 
                         System.out.println("O usuario '" + nomeExclu + "' foi excluido com sucesso.");
                         usuarioEncontrado = true;
-                        n_uso--;
+                        n_uso--;//faz o decremento na quantidade de usuarios cadastrados
                         i--;
                         break;
                     }
