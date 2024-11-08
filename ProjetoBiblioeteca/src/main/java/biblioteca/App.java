@@ -27,7 +27,7 @@ public class App {
         Emprestimo emp[] = new Emprestimo[4];
 
         int opc = 0;
-        while (opc != 9) {
+        while (opc != 11) {
 
             System.out.println("-------------MENU BIBLIOTECA-------------");
             System.out.println("|Digite a opcao que gostaria de executar:|");
@@ -39,10 +39,12 @@ public class App {
             System.out.println("|6- Listagem De Clientes                 |");
             System.out.println("|7- Listagem De Livros Emprestados       |");
             System.out.println("|8- Salvar                               |");
-            System.out.println("|9- Sair                                 |");
+            System.out.println("|9- Excluir Livro                        |");
+            System.out.println("|10- Excluir Usuario                     |");
+            System.out.println("|11- Sair                                |");
             System.out.println("------------------------------------------");
             opc = scan.nextInt();
-            scan.nextLine();//para resolver o bug de pular a pergunta;
+            scan.nextLine(); // Para resolver o bug de pular a pergunta;
 
             if (opc == 1) {
 
@@ -287,15 +289,50 @@ public class App {
                     System.out.println("Erro ao salvar os dados: " + e.getMessage());
                 }
 
-            } else if (opc == 9) {
-                System.out.println("Obrigado e ate mais");
+           } else if (opc == 9) { // Excluir Livro
+                System.out.println("Digite o título do livro que deseja excluir:");
+                String tituloExclu = scan.nextLine();
+                boolean livroEncontrado = false;
+
+                for (int j = 0; j < lv.length; j++) {
+                    if (lv[j] != null && lv[j].titulo.equalsIgnoreCase(tituloExclu)) {
+                        lv[j] = null; // Remove o livro
+                        System.out.println("O livro '" + tituloExclu + "' foi excluído com sucesso.");
+                        livroEncontrado = true;
+                        n_lv--;
+                        break;
+                    }
+                }
+                if (!livroEncontrado) {
+                    System.out.println("Livro não encontrado.");
+                }
+
+            } else if (opc == 10) { // Excluir Usuario
+                System.out.println("Digite o nome do usuário que deseja excluir:");
+                String nomeExclu = scan.nextLine();
+                boolean usuarioEncontrado = false;
+
+                for (int j = 0; j < uso.length; j++) {
+                    if (uso[j] != null && uso[j].getNome().equalsIgnoreCase(nomeExclu)) {
+                        uso[j] = null; // Remove o usuário
+                        System.out.println("O usuário '" + nomeExclu + "' foi excluído com sucesso.");
+                        usuarioEncontrado = true;
+                        n_uso--;
+                        break;
+                    }
+                }
+                if (!usuarioEncontrado) {
+                    System.out.println("Usuário não encontrado.");
+                }
+
+            } else if (opc == 11) {
+                System.out.println("Obrigado e até mais!");
 
             } else {
-                System.out.println("Opcao invalida tente novamente");
+                System.out.println("Opção inválida, tente novamente.");
             }
-
         }
 
+        scan.close();
     }
-
 }
