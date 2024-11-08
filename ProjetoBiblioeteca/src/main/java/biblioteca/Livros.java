@@ -62,10 +62,10 @@ public class Livros {
 
     }
     
-    // Criação de um metodo para mostrar se ainda tem livros do mesmo tipo
+    // Criação de um metodo para decrementar a quantidade de livros,depois do emprestimo;
     
     public void estado_livro() {
-        if (numero_exemplares == 0) {
+        if (numero_exemplares == 0) { //retorno para o caso das unidades desse livro acabarem;
             System.out.println("desculpa nao a mais exemplares");
 
         } else {
@@ -75,6 +75,8 @@ public class Livros {
         }
 
     }
+    
+  // Criação de um metodo para incrementar a quantidade de livros,depois da devolução;
 
     public void delv() {
         numero_exemplares++;

@@ -6,6 +6,7 @@ public class Emprestimo {
     //Atributos
     public Livros livros;
     public Usuarios usu;
+    
     //método para a realização de emprestimos;
     
     void estado_uso(Livros liv, Usuarios usu) {
