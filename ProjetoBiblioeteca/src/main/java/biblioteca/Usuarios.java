@@ -12,7 +12,7 @@ public class Usuarios {
     public Usuarios(String nome, String email, int num_ident) {
         // Verifica se o nome contém números e lança IllegalArgumentException se for o caso
         if(nome.matches(".*\\d.*")){
-            throw new IllegalArgumentException("O nome não pode conter números.");
+            throw new IllegalArgumentException("O nome não pode conter números tente novamente ");
         }
         
         

@@ -282,17 +282,21 @@ public class App {
                     // salvar usuarios
                     writer.println("------Usuarios------");
                     for (int j = 0; j < n_uso; j++) {
+                        if(uso[j]!= null){
                         writer.println("nome: " + uso[j].getNome());
                         writer.println("email: " + uso[j].getEmail());
                         writer.println("numero de indentificacao " + uso[j].getNum_ident());
+                        }
                     }
                     // salvar livros
                     writer.println("------livros------");
                     for (int j = 0; j < n_lv; j++) {
+                        if(lv[j] != null){
                         writer.println("tiulo:" + lv[j].titulo);
                         writer.println("autor:" + lv[j].autor);
                         writer.println("ano de publicacao: " + lv[j].getAno_publi());
                         writer.println("numero de exemplares:" + lv[j].getNum_exemplares());
+                        }
 
                     }
                     // salvar emprestimo
