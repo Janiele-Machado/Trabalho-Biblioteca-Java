@@ -66,10 +66,24 @@ public class App {
                                 String input = scan.nextLine();
                                 num_inserido = Integer.parseInt(input);// Tenta converter para int
                                 // Se não lançar exceção, significa que a entrada é válida
+                                
+                                boolean numero_duplicado = false;// Verificar se o número de identificação já foi cadastrado
+                                for(int j=0; j<i; j++){
+                                    if(uso[j].getNum_ident()== num_inserido){
+                                        numero_duplicado=true;
+                                        break;
+                                        
+                                    }
+                                    
+                                }
+                                if(numero_duplicado){
+                                    System.out.println("Erro: Este número de identificação já foi cadastrado. Tente novamente.");
+                                }else{
                                 uso[i] = new Usuarios(nome_inserido, email_inserido, num_inserido);
                                 entrada_valida = true;
                                 n_uso++;
                                 i++;
+                                }
 
                             } catch (NumberFormatException e) {
                                 System.out.println("Entrada invalida. Por favor, digite apenas numeros inteiros para o numero de identificacao, resgistro nao foi feito.");
