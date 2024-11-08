@@ -240,7 +240,7 @@ public class App {
                         System.out.println("Desculpe, mas nao existem livros e/ou usuarios cadastrados");
 
                     }
-                } else if (opc == 5) {
+                } else if (opc == 5) {//Quinta opção (Listagem de livros)
                     try {
                         System.out.println("--------Listagem de Livros---------");
                         for (int t = 0; t < n_lv; t++) {
