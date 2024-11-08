@@ -131,8 +131,10 @@ public class App {
             } else if (opc == 3) {
                 try {
                     int procura;
+                    try{
                     System.out.println("Digite o seu numero de identificacao de usuario");
-                    procura = scan.nextInt();
+                    String opc3t = scan.nextLine();
+                    procura = Integer.parseInt(opc3t);
                     scan.nextLine();//para resolver o bug de pular a pergunta;
                     boolean usuarioEncontrado = false; //  para saber se o usuário foi encontrado
 
@@ -168,6 +170,9 @@ public class App {
 
                         System.out.println("Desculpa, nao achamos voce no nosso sistema");
 
+                    }
+                    }catch(NumberFormatException e){
+                        System.out.println("O numero de intendificacao  nao contem letras tente novamente");
                     }
                 } catch (Exception e) {
                     System.out.println("Desculpe, mas nao existem livros e/ou usuarios cadastrados ");
