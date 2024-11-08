@@ -34,7 +34,7 @@ public class Usuarios {
     public int getNum_ident() {
         return num_ident;
     }
-
+    //Criação de um método para a listagem de usuarios;
     public void dados() {
         System.out.println("Usuario: " + this.nome);
         System.out.println("Email: " + this.email);
