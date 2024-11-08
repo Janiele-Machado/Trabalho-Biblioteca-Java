@@ -47,7 +47,7 @@ public class App {
                 String opct = scan.nextLine();
                 opc = Integer.parseInt(opct);
 
-                if (opc == 1) { // primeira opção (Cadastro de Clientes.)
+                if (opc == 1) {  // primeira opção (Cadastro de Clientes.)
 
                     boolean entrada_valida;
                     do {
@@ -99,7 +99,7 @@ public class App {
 
                     } while (i < 4);
 
-                } else if (opc == 2) {
+                } else if (opc == 2) {// Segunda opção (Cadastro de livros.)
 
                     while (f < 4) {
                         boolean entrada_valida = false;
