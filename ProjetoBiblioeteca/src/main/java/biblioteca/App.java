@@ -240,7 +240,7 @@ public class App {
                         System.out.println("Desculpe, mas nao existem livros e/ou usuarios cadastrados");
 
                     }
-                } else if (opc == 5) {//Quinta opção (Listagem de livros)
+                } else if (opc == 5) {//Quinta opção (Listagem de todos os livros da biblioteca)
                     try {
                         System.out.println("--------Listagem de Livros---------");
                         for (int t = 0; t < n_lv; t++) {
@@ -251,7 +251,7 @@ public class App {
                         System.out.println("Desculpe, mas nao ha livros cadastrados para listagem");
                     }
 
-                } else if (opc == 6) {
+                } else if (opc == 6) {//Sexta opção (Listagem de todos os clientes da biblioteca)
                     try {
                         System.out.println("---------------Listagem de Clientes--------------");
                         for (int t = 0; t < n_uso; t++) {
