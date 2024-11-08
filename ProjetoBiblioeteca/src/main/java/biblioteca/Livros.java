@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Livros {
 
-    // Atributos da classe
+    // Atributos da classe Livros
     public String titulo;
     public String autor;
     private int ano_publi;
@@ -12,7 +12,7 @@ public class Livros {
     private LocalDate data_Emprestimo;
     private LocalDate dataDevolucao;
 
-    // Construtores da classe livro
+    // Construtores da classe Livros
     public Livros(String titulo, String autor, int ano_publi, int num_exemplares) {
         if (autor.matches(".*\\d.*")) {
             throw new IllegalArgumentException("O nome do autor não pode conter números.");
@@ -51,7 +51,7 @@ public class Livros {
     public void setData_Emprestimo(LocalDate dataEmprestimo) {
         this.data_Emprestimo = dataEmprestimo;
     }
-
+    //   get e set da data de devolução
     public LocalDate getDataDevolucao() {
         return dataDevolucao;
     }
