@@ -33,8 +33,8 @@ public class App {
 
             System.out.println("-------------MENU BIBLIOTECA-------------");
             System.out.println("|Digite a opcao que gostaria de executar:|");
-            System.out.println("|1- Cadastro De Cliente                  |");
-            System.out.println("|2- Cadastro De Livro                    |");
+            System.out.println("|1- Cadastro De Clientes                 |");
+            System.out.println("|2- Cadastro De Livros                   |");
             System.out.println("|3- Emprestimos                          |");
             System.out.println("|4- Devolucao                            |");
             System.out.println("|5- Listagem De Livros                   |");
@@ -246,10 +246,7 @@ public class App {
                 try {
                     System.out.println("--------Listagem de Livros---------");
                     for (int t = 0; t < n_lv; t++) {
-                        System.out.println("Titulo : " + lv[t].titulo);
-                        System.out.println("autor : " + lv[t].autor);
-                        System.out.println("ano de publicacao: " + lv[t].getAno_publi());
-                        System.out.println("numero de exemplares" + lv[t].getNum_exemplares());
+                        lv[t].dados();
                         System.out.println("-----------------------------------------------------------");
                     }
                 } catch (Exception e) { //retorno para o caso da pessoa pedir para listar livros sem antes cadastrar;
