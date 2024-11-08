@@ -69,7 +69,7 @@ public class App {
                                 i++;
 
                             } catch (NumberFormatException e) {
-                                System.out.println("Entrada inválida. Por favor, digite apenas números inteiros para o número de identificação resgistro nao foi feito.");
+                                System.out.println("Entrada invalida. Por favor, digite apenas numeros inteiros para o numero de identificacao, resgistro nao foi feito.");
 
                             } catch (IllegalArgumentException e) {
                                 System.out.println(e.getMessage());
@@ -216,7 +216,7 @@ public class App {
             } else if (opc == 5) {
                 try {
                     System.out.println("--------Listagem de Livros---------");
-                    for (int t = 0; t < 4; t++) {
+                    for (int t = 0; t < n_lv; t++) {
                         System.out.println("Titulo : " + lv[t].titulo);
                         System.out.println("autor : " + lv[t].autor);
                         System.out.println("ano de publicacao: " + lv[t].getAno_publi());
@@ -230,13 +230,13 @@ public class App {
             } else if (opc == 6) {
                 try {
                     System.out.println("---------------Listagem de Clientes--------------");
-                    for (int t = 0; t < 4; t++) {
+                    for (int t = 0; t < n_uso; t++) {
                         uso[t].dados();
                         System.out.println("---------------------------------------------------------------");
 
                     }
                 } catch (Exception e) {
-                    System.out.println("Desculpe, nao ha nenhum usuario cadastrado"); //sorry 
+                    System.out.println("Desculpe, nao ha usuarios cadastrado");
                 }
 
             } else if (opc == 7) {
@@ -289,47 +289,58 @@ public class App {
                     System.out.println("Erro ao salvar os dados: " + e.getMessage());
                 }
 
-           } else if (opc == 9) { // Excluir Livro
+            } else if (opc == 9) { // Excluir Livro
                 System.out.println("Digite o título do livro que deseja excluir:");
                 String tituloExclu = scan.nextLine();
                 boolean livroEncontrado = false;
 
-                for (int j = 0; j < lv.length; j++) {
-                    if (lv[j] != null && lv[j].titulo.equalsIgnoreCase(tituloExclu)) {
-                        lv[j] = null; // Remove o livro
+                for (int o = 0; o < lv.length; o++) {
+                    if (lv[o] != null && lv[o].titulo.equalsIgnoreCase(tituloExclu)) {
+                        // Desloca todos os elementos após o livro excluído para a esquerda
+                        for (int j = o; j < 4 - 1; j++) {
+                            lv[j] = lv[j + 1];
+                        }
+                        lv[3] = null;//limpa a ultima posição
                         System.out.println("O livro '" + tituloExclu + "' foi excluído com sucesso.");
                         livroEncontrado = true;
                         n_lv--;
+                        f--;
                         break;
                     }
                 }
                 if (!livroEncontrado) {
-                    System.out.println("Livro não encontrado.");
+                    System.out.println("Livro nao encontrado.");
                 }
 
             } else if (opc == 10) { // Excluir Usuario
-                System.out.println("Digite o nome do usuário que deseja excluir:");
+                System.out.println("Digite o nome do usuario que deseja excluir:");
                 String nomeExclu = scan.nextLine();
                 boolean usuarioEncontrado = false;
 
-                for (int j = 0; j < uso.length; j++) {
-                    if (uso[j] != null && uso[j].getNome().equalsIgnoreCase(nomeExclu)) {
-                        uso[j] = null; // Remove o usuário
-                        System.out.println("O usuário '" + nomeExclu + "' foi excluído com sucesso.");
+                for (int o = 0; o < uso.length; o++) {
+                    if (uso[o] != null && uso[o].getNome().equalsIgnoreCase(nomeExclu)) {
+                        // Desloca todos os elementos após o usuario excluído para a esquerda
+                        for (int j = o; j < 4 - 1; j++) {
+                            uso[j] = uso[j + 1];
+                        }
+                        uso[3] = null;//limpa a ultima posição
+
+                        System.out.println("O usuario '" + nomeExclu + "' foi excluido com sucesso.");
                         usuarioEncontrado = true;
                         n_uso--;
+                        i--;
                         break;
                     }
                 }
                 if (!usuarioEncontrado) {
-                    System.out.println("Usuário não encontrado.");
+                    System.out.println("Usuario nao encontrado.");
                 }
 
             } else if (opc == 11) {
-                System.out.println("Obrigado e até mais!");
+                System.out.println("Obrigado e ate mais!");
 
             } else {
-                System.out.println("Opção inválida, tente novamente.");
+                System.out.println("Opcao invalida, tente novamente.");
             }
         }
 
