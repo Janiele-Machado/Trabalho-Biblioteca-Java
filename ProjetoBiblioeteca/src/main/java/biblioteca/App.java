@@ -317,7 +317,7 @@ public class App {
                         System.out.println("Erro ao salvar os dados: " + e.getMessage());
                     }
 
-                } else if (opc == 9) { // Excluir Livro
+                } else if (opc == 9) { // Excluir Livro, inicialmente iriamos usar ArrayList, mas teriamos que mudar todo o desenvolvimento do codigo.
                     System.out.println("Digite o título do livro que deseja excluir:");
                     String tituloExclu = scan.nextLine();
                     boolean livroEncontrado = false;
