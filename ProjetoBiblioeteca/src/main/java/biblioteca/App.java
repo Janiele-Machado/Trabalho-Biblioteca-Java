@@ -150,13 +150,14 @@ public class App {
                                     emp[h] = new Emprestimo();
                                     emp[h].estado_uso(lv[j], uso[h]); //voce tem que enviar a variavel com tudo!!!
                                     livroEncontrado = true;
-                                    System.out.println("Data de Devolucao do livro: " + lv[j].getDataDevolucao());//mostra o dia da devolução;
-
+                                    if (uso[h].usu_disp == 1 && uso[h].livroEmprestado == lv[j]) { //testa para só retornar a data devolução se o emprestimo for concluido com sucesso;
+                                        System.out.println("Data de Devolucao do livro: " + lv[j].getDataDevolucao());//mostra o dia da devolução;
+                                    }
                                     break; //para quando achar o livro,o for nao continuar rodando 
                                 }
                             }
 
-                            if (livroEncontrado == false) { //retorno pro caso do usuario digitar um livro invalido;
+                            if (livroEncontrado == false) { //retorno para o caso do usuario digitar um livro invalido;
                                 System.out.println("Desculpe, livro nao encontrado.");
                             }
 
