@@ -193,7 +193,7 @@ public class App {
                         System.out.println("Desculpe, mas nao existem livros e/ou usuarios cadastrados ");
                     }
 
-                } else if (opc == 4) {
+                } else if (opc == 4) {// quarta opção (Devolução)
                     try {
 
                         int procura_opc4;
