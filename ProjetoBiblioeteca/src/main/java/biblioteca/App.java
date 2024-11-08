@@ -47,7 +47,7 @@ public class App {
                 String opct = scan.nextLine();
                 opc = Integer.parseInt(opct);
 
-                if (opc == 1) {
+                if (opc == 1) { // primeira opção (Cadastro de Clientes.)
 
                     boolean entrada_valida;
                     do {
