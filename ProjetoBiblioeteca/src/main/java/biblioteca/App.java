@@ -28,6 +28,8 @@ public class App {
 
         int opc = 0;
         while (opc != 11) {
+            try{
+            
 
             System.out.println("-------------MENU BIBLIOTECA-------------");
             System.out.println("|Digite a opcao que gostaria de executar:|");
@@ -43,8 +45,9 @@ public class App {
             System.out.println("|10- Excluir Usuario                     |");
             System.out.println("|11- Sair                                |");
             System.out.println("------------------------------------------");
-            opc = scan.nextInt();
-            scan.nextLine(); // Para resolver o bug de pular a pergunta;
+            String opct = scan.nextLine();
+            opc =Integer.parseInt(opct);
+           
 
             if (opc == 1) {
 
@@ -354,8 +357,15 @@ public class App {
             } else {
                 System.out.println("Opcao invalida, tente novamente.");
             }
-        }
+        
 
         scan.close();
+        
+        }catch(NumberFormatException e){
+                System.out.println("escolha uma opçao com numero");
+        }
+        
+        
     }
+}
 }
