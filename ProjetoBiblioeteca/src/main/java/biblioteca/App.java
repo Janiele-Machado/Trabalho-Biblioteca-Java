@@ -263,7 +263,7 @@ public class App {
                         System.out.println("Desculpe, nao ha usuarios cadastrado");
                     }
 
-                } else if (opc == 7) {
+                } else if (opc == 7) {//Setima opção (Registrando os emprestimos feitos.)
                     try {
                         System.out.println("-------Registro de Emprestimos---------");
                         for (int h = 0; h < 4; h++) {
