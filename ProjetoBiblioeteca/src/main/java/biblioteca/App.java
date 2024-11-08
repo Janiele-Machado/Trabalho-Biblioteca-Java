@@ -143,7 +143,7 @@ public class App {
                         }
                     }
 
-                } else if (opc == 3) {
+                } else if (opc == 3) { // terceira opção (Emprestimo de livros.)
                     try {
                         int procura;
                         try {
