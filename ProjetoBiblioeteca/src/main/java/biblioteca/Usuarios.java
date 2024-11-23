@@ -44,8 +44,7 @@ public class Usuarios {
     //criação de um método para efetuar a devolução
     public void delv_uso() {
         if (usu_disp == 1 && livroEmprestado != null) {
-            livroEmprestado.setData_Emprestimo(null);//remove a data de emprestimo;
-            livroEmprestado.setDataDevolucao(null);//remove a data de devolução;
+           
             livroEmprestado.delv(); //aciona o método que incrementa a quantidade de livros;
             livroEmprestado = null;
             usu_disp = 0;//torna o usuario disponivel para fazer outro empréstimo; 
